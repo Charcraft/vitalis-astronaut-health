@@ -2,6 +2,8 @@
 
 This folder is the public record of **how Super Intelligence (SI) tools were used to build V.I.T.A.L.I.S.**: the relevant prompts sent to each AI harness, in chronological order, and the part of the project each one created. It supports the "Use of Super Intelligence" disclosure required by NASA Space Apps ([`../AI_USE.md`](../AI_USE.md)).
 
+For a judge-friendly highlight of the most important prompts and why they evidence responsible use, see [`KEY_PROMPTS.md`](KEY_PROMPTS.md).
+
 | Harness | Role in the project | File | Prompts |
 |---|---|---|---|
 | **Antigravity** (Google Antigravity CLI agent) | Product build: design, backend, assistant L.I.S., native desktop port, backend integration, alarms, Wellbeing module, releases v1.0.0 → v1.2.0 | [`antigravity.md`](antigravity.md) | 32 entries |
