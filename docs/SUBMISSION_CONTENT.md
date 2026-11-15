@@ -13,9 +13,9 @@ V.I.T.A.L.I.S. — Vital Information Telemetry and Life-support In Space
 ```
 V.I.T.A.L.I.S. is an offline-first health-monitoring application that lets astronauts assess their own health on long-duration missions and act on it — even when no doctor on Earth can answer in time.
 
-On a Mars transit, one-way communication takes up to ~22 minutes and astronauts are not doctors. V.I.T.A.L.I.S. turns a health decision into three steps: a guided measurement (including how to take it in microgravity), a comparison against the astronaut's own baseline built from NASA's open spaceflight data (OSDR OSD-575), and a single green-yellow-red call with a concrete next action and a cited source. An interactive 3D body of 172 anatomical meshes makes the affected organs pulse in their triage colour, and an on-board assistant, L.I.S., speaks English and Spanish, never invents a number, warns calmly on yellow and urgently on red, and can run the whole app by voice.
+On a long mission — a lunar base, a Mars transit (up to ~22 minutes one-way), any link loss — astronauts are not doctors and cannot always wait for Earth. V.I.T.A.L.I.S. turns a health decision into three steps: a guided measurement (including how to take it in microgravity), a comparison against the astronaut's own baseline built from NASA's open spaceflight data (OSDR OSD-575), and a single green-yellow-red call with a concrete next action and a cited source. An interactive 3D body of 172 anatomical meshes makes the affected organs pulse in their triage colour, and an on-board assistant, L.I.S., speaks English and Spanish, never invents a number, warns calmly on yellow and urgently on red, and can run the whole app by voice.
 
-Routine mode tracks indicators, wellbeing (NASA behavioral-health tests, sleep, decompression) and mission schedule. Emergency mode becomes a step-by-step protocol with a CPR metronome, procedural animations, an SBAR report and a prioritised queue to Earth. It runs fully offline on a touch workstation — and on an Android tablet.
+Routine mode tracks indicators, wellbeing (NASA behavioral-health tests, sleep, decompression) and mission schedule. Emergency mode becomes a step-by-step protocol with a CPR metronome, procedural animations, an SBAR report and a prioritised queue to Earth. It runs fully offline on a touch workstation or tablet, and is not tied to one mission: station, Moon, Mars or deep space.
 
 It does not diagnose and is not a medical device.
 ```
@@ -31,13 +31,13 @@ TO BE ADDED BY THE TEAM — public link (no login) to a ≤ 30-second video or a
 ```
 https://github.com/Charcraft/vitalis-astronaut-health
 ```
-(Native application: `pip install -r requirements.txt && python vitalis_desktop.py`.)
+(Run it with `pip install -r requirements.txt && python vitalis_desktop.py`.)
 
 ## Detailed Project Description
 
 ```
 WHAT IT DOES
-V.I.T.A.L.I.S. is a native, offline-first desktop application for astronaut self-assessment. It covers 26 plug-and-play parameters — 17 real analytes from NASA OSDR study OSD-575 and 9 continuous vital/cabin signals — organised around the five hazards of human spaceflight defined by NASA's Human Research Program: space radiation, isolation and confinement, distance from Earth, gravity fields and hostile/closed environments.
+V.I.T.A.L.I.S. is native, offline-first software for astronaut self-assessment on any space mission. It covers 26 plug-and-play parameters — 17 real analytes from NASA OSDR study OSD-575 and 9 continuous vital/cabin signals — organised around the five hazards of human spaceflight defined by NASA's Human Research Program: space radiation, isolation and confinement, distance from Earth, gravity fields and hostile/closed environments.
 
 For every indicator the app explains how to measure it in microgravity and why it matters, and shows its trajectory and status on an interactive OpenGL 3D body (172 meshes) where each organ can be touched.
 
@@ -49,7 +49,7 @@ HOW IT WORKS
 5. Escalation and Mission Control: yellow triggers calm proactive guidance; red triggers an intermittent soft alarm, the emergency protocol and a prioritised A>B>C>D queue to Earth with chained hashes; Mission Control shows crew stations at 1 Hz (simulated or OSD-575 replay).
 6. Emergency protocols: step-by-step checklists with a CPR metronome and vector ALSP animations (AED, IV access, airway, drugs).
 7. Wellbeing (NASA BHP): logbook, routine, PVT-B reaction test, Stroop cognition battery, sleep/circadian hygiene, badges, 4-4-4-4 decompression and a DSN link with simulated Earth–Mars delay.
-8. Offline-first: SQLite persistence on the crew workstation, no cloud. Touch-first, dark/light, English/Spanish. The same app runs on an Android tablet as a remote touch screen.
+8. Offline-first: SQLite persistence on the crew workstation, no cloud. Touch-first, dark/light, English/Spanish. A tablet can be used as a touch client of the same software.
 
 WHY IT MATTERS
 On long missions astronauts carry much of the responsibility for noticing changes in themselves. V.I.T.A.L.I.S. gives the crew what they lack: a structured way to measure and a defensible way to decide. It does not diagnose and does not replace a flight surgeon.
@@ -64,13 +64,13 @@ WHAT WE HOPE TO ACHIEVE
 A working prototype of the complete loop — measure, compare, decide, act, log — plus behavioral well-being, ready to be validated with real flight-surgeon input.
 
 TOOLS AND TECHNOLOGIES
-Python 3.13, PySide6 (Qt 6), VTK 9.7 (OpenGL), FastAPI, Uvicorn, SQLite (WAL), NumPy, Pydantic, faster-whisper, edge-tts, sounddevice, OpenCV (optional). Android tablet mode over ADB + WebSocket with an HTML/JS client.
+Python 3.13, PySide6 (Qt 6), VTK 9.7 (OpenGL), FastAPI, Uvicorn, SQLite (WAL), NumPy, Pydantic, faster-whisper, edge-tts, sounddevice, OpenCV (optional). Tablet mode over WebSocket with an HTML/JS client.
 ```
 
 ## Use of Super Intelligence (SI)
 
 ```
-Yes. SI coding agents (Antigravity agent and Claude Code) wrote and refactored most of the Python code, the tests and the English documentation from prompts written by the team; the team directed every iteration, ran the application on a desktop and on an Android tablet, and reviewed the results. SI-assisted web research located official NASA and space-agency sources, which were verified against the original pages. Inside the product, an optional cloud or local language model only phrases explanations: it never decides a triage level, a validator rejects any number not present in the local data, and a deterministic fallback works offline. Speech uses edge-tts / Windows SAPI and local faster-whisper at run time.
+Yes. SI coding agents (Antigravity agent and Claude Code) wrote and refactored most of the Python code, the tests and the English documentation from prompts written by the team; the team directed every iteration, ran the software on a workstation and on a tablet, and reviewed the results. SI-assisted web research located official NASA and space-agency sources, which were verified against the original pages. Inside the product, an optional cloud or local language model only phrases explanations: it never decides a triage level, a validator rejects any number not present in the local data, and a deterministic fallback works offline. Speech uses edge-tts / Windows SAPI and local faster-whisper at run time.
 
 The idea, scope, clinical indicators and thresholds were not delegated. No data, image or video in the repository was generated by SI (screenshots are captures of the running app) and no NASA branding is used. The complete, dated prompt record is public in docs/prompts/ and the disclosure in docs/AI_USE.md of the repository.
 ```

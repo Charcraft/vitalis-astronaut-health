@@ -1,11 +1,11 @@
-# tablet/ — V.I.T.A.L.I.S. on Android tablets
+# tablet/ — V.I.T.A.L.I.S. on a tablet
 
-The desktop application (PySide6 + VTK + SQLite + L.I.S.) runs **entirely on the PC**; the tablet is its screen, touch, keyboard, speaker and microphone. There is no second interface: what you see on the tablet is the real window, with the **172 3D meshes**, all eight views, Wellbeing (NASA BHP), Mission Control, the L.I.S. panel, the red alarm and every setting.
+The software (PySide6 + VTK + SQLite + L.I.S.) runs **entirely on the PC**; the tablet is its screen, touch, keyboard, speaker and microphone. There is no second interface: what you see on the tablet is the real window, with the **172 3D meshes**, all eight views, Wellbeing (NASA BHP), Mission Control, the L.I.S. panel, the red alarm and every setting.
 
 ## Use (Windows + tablet over USB)
 
 1. On the tablet: *Settings → Developer options → USB debugging*, and accept the authorisation prompt.
-2. Close the desktop app if it is open (both share `data/vitalis.db`).
+2. Close the regular instance if it is open (both share `data/vitalis.db`).
 3. Run `run-vitalis-tablet.bat` (or `python vitalis_tablet.py`).
 4. Chrome opens on the tablet; tap **Iniciar** (full screen, landscape, sound and microphone).
 
@@ -22,14 +22,10 @@ Options: `--lan` (also listen on the local network without USB; open `http://<PC
 | Client | `web/index.html` | Canvas, pointers, keyboard, Web Audio, microphone, full screen, reconnection. |
 | ADB | `adb.py` | Detects the tablet, opens the USB tunnel and grants Chrome the microphone permission. |
 
-## Reference tablet
-
-HTC A104 · Android 13 · Unisoc UMS9230 · 8 GB · 1200×2000 px at 240 dpi → **1333×800 logical px** (the app was verified from 1180×760). Measured: ~16–19 frames/s with waveforms and the 3D body moving, ~11 ms capture, ~45 ms round trip over USB.
-
 ## Tests and audit
 
 * `python -m unittest tests/test_tablet.py -v` — touch, scrolling in lists, text entry, audio and microphone, protocol, and pixel-exact equivalence of partial repainting.
-* `python scripts/auditoria_tablet.py` — opens all 29 views/sub-panels at tablet size and writes screenshots plus an overlap / clipping / touch-target report to `logs/auditoria-tablet/`. Current result: 0 overlaps, 0 clipped controls, 0 touch targets under 44 px.
+* `python scripts/auditoria_tablet.py` — opens all 29 views/sub-panels at touch-screen size and writes screenshots plus an overlap / clipping / touch-target report to `logs/auditoria-tablet/`. Current result: 0 overlaps, 0 clipped controls, 0 touch targets under 44 px.
 
 ## Known limits
 

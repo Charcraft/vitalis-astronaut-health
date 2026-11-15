@@ -1,6 +1,6 @@
 # Architecture — how V.I.T.A.L.I.S. works
 
-V.I.T.A.L.I.S. is a **single-process, offline-first desktop application** written in Python. One command (`python vitalis_desktop.py`) starts the data runtime, a local API and the Qt user interface. There is no cloud service, container or web server to deploy.
+V.I.T.A.L.I.S. is **single-process, offline-first software** written in Python. One command (`python vitalis_desktop.py`) starts the data runtime, a local API and the Qt user interface. There is no cloud service, container or web server to deploy.
 
 ```
                           ┌──────────────────────── desktop/ (PySide6 + VTK) ────────────────────────┐
@@ -63,7 +63,7 @@ Events, measurements and log entries are queued with priority **A > B > C > D** 
 
 ## 7. User interface (`desktop/`)
 
-Eight touch-first views (targets ≥ 52 px, verified ≥ 44 px on a tablet-size audit), dark and light themes (QSS), English/Spanish packs (`desktop/locales/*.json`), live waveforms drawn with `QPainter`, and a **shared VTK viewer** reused by Overview and 3D Body. The viewer builds 172 meshes from a binary pack (`desktop/assets/anatomy-male.{bin,json}`), renders the skin as translucent X-ray, picks organs with `vtkCellPicker`, frames the body by field of view, lowers quality while the camera moves, and pulses organs that have out-of-range indicators in their triage colour.
+Eight touch-first views (targets ≥ 52 px, verified ≥ 44 px by an automated audit), dark and light themes (QSS), English/Spanish packs (`desktop/locales/*.json`), live waveforms drawn with `QPainter`, and a **shared VTK viewer** reused by Overview and 3D Body. The viewer builds 172 meshes from a binary pack (`desktop/assets/anatomy-male.{bin,json}`), renders the skin as translucent X-ray, picks organs with `vtkCellPicker`, frames the body by field of view, lowers quality while the camera moves, and pulses organs that have out-of-range indicators in their triage colour.
 
 ## 8. Wellbeing / NASA BHP (`desktop/salud_mental.py`)
 
@@ -71,10 +71,10 @@ Eight sub-modules (Logbook, Routine, PVT-B, Cognition/Stroop, Sleep, Badges, Dec
 
 ## 9. Tablet bridge (`tablet/`)
 
-The same desktop app runs on the PC; the tablet is its screen. The window is rendered at the tablet's resolution and density (read through ADB), only *dirty regions* are captured (Qt `render()` plus a VTK frame grab), JPEG-encoded and sent over a WebSocket (`adb reverse`, localhost) with acknowledgement-based flow control. Touch, drag with inertia, pinch-zoom of the 3D viewer, the Android keyboard, speaker audio and microphone are mapped back to the real widgets. See [`tablet/README.md`](../tablet/README.md).
+The software runs on the PC; a tablet can act as its screen. The window is rendered at the tablet's resolution and density, only *dirty regions* are captured (Qt `render()` plus a VTK frame grab), JPEG-encoded and sent over a WebSocket (`adb reverse`, localhost) with acknowledgement-based flow control. Touch, drag with inertia, pinch-zoom of the 3D viewer, the Android keyboard, speaker audio and microphone are mapped back to the real widgets. See [`tablet/README.md`](../tablet/README.md).
 
 ## 10. Testing
 
 * `tests/test_new_backend_integration.py` — triage, registry, database, 1 Hz runtime, Earth sync, BHP evaluator, i18n, touch-size geometry.
 * `tests/test_tablet.py` — touch gestures, scrolling, text entry, audio/microphone shims, protocol, pixel-exact partial repaint.
-* `scripts/auditoria_tablet.py` — opens every view/sub-panel at tablet size and reports overlaps, clipped controls and touch targets < 44 px.
+* `scripts/auditoria_tablet.py` — opens every view/sub-panel at touch-screen size and reports overlaps, clipped controls and touch targets < 44 px.

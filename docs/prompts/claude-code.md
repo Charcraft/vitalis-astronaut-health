@@ -64,5 +64,5 @@ Harness used for the **3D anatomy, de-web-ification, touch UX, tablet version an
 >
 > **English:** My tablet is connected; I want the application to run on the tablet, optimised for the hardware, with no function left out. Do it properly and verify touch works, views don't overlap and everything matches the original desktop design.
 
-**Outcome:** after reading the device over ADB (HTC A104, Android 13, 1200×2000 px at 240 dpi) and measuring that the UI is ~16 000 lines of Qt plus VTK and offline speech, the agent proposed a native Android port, a full web rewrite, or a **remote touch screen of the real app**. The last was chosen because it guarantees 100 % of the functions and the original design.
+**Outcome:** after reading the device over ADB and measuring that the UI is ~16 000 lines of Qt plus VTK and offline speech, the agent proposed a native Android port, a full web rewrite, or a **remote touch screen of the real app**. The last was chosen because it guarantees 100 % of the functions and the original design.
 **Produced:** [`tablet/`](../../tablet/README.md) — dirty-region capture, JPEG over WebSocket, touch/keyboard/audio/microphone mapping, `tests/test_tablet.py` (16 tests) and `scripts/auditoria_tablet.py`, which found and fixed a real overlap in the *Measure* keypad at tablet height.

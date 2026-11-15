@@ -25,8 +25,8 @@ NASA Space Apps 2026 permits SI tools "to accelerate innovation" but not to come
 
 * The choice of challenge, the product concept and its scope (self-assessment, personal baseline, 3D body, emergency mode, on-board assistant, offline-first).
 * The selection of clinical indicators and every threshold decision; unvalidated values are labelled, never invented.
-* The decision to build a native desktop application instead of a web app, and to run the tablet version as a remote screen of the same app.
-* Final review, testing on real hardware (an Android tablet) and release approval.
+* The decision to build native software instead of a web app, and to offer a tablet as a touch client of the same software.
+* Final review, testing on real hardware (including an Android tablet) and release approval.
 
 ## Safeguards
 

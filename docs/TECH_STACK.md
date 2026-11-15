@@ -1,12 +1,12 @@
 # Technology stack
 
-Native desktop application, 100 % Python, offline-first. Versions below are the ones verified on the development machine (Windows 11).
+Native software, 100 % Python, offline-first. Versions below are the ones verified on the development machine (Windows 11).
 
 ## Constraints that drive the stack
 
 | Constraint | Consequence |
 |---|---|
-| Mars transit: ~22 min one-way delay, no reliable link | **Offline-first**: everything runs locally; the cloud is never required. |
+| Remote missions: long or unreliable communication delay (up to ~22 min one-way on a Mars transit, link loss on any mission) | **Offline-first**: everything runs locally; the cloud is never required. |
 | Touch-first crew workstation, low latency | Native Qt UI (no browser, no Electron), ≥ 52 px touch targets. |
 | Interactive anatomy, organ-level picking | VTK/OpenGL renderer with 172 real meshes, with a vector fallback. |
 | Auditable by a jury | Pure deterministic triage engine, SQLite traceability, reproducible `unittest` suites. |
@@ -24,7 +24,7 @@ Native desktop application, 100 % Python, offline-first. Versions below are the 
 | Local database | **SQLite (WAL)** | Persists OSD-575, measurements, 1 Hz series and aggregates, SBAR episodes, mission log, settings. |
 | Local API | **FastAPI 0.141 + Uvicorn 0.52** (`127.0.0.1:8780`), httpx, Pydantic 2 | REST/SSE for parameters, triage, telemetry hub, series, episodes, Earth queue, export. |
 | Assistant | `backend/lis_agent.py` | Grounded answers, numeric validator, deterministic fallback; optional cloud/local LLM. |
-| Tablet bridge | FastAPI WebSocket, OpenCV (optional) JPEG, HTML/JS client (Canvas, Pointer Events, Web Audio, `getUserMedia`) | Runs the same app on an Android tablet over USB. |
+| Tablet bridge | FastAPI WebSocket, OpenCV (optional) JPEG, HTML/JS client (Canvas, Pointer Events, Web Audio, `getUserMedia`) | Lets a tablet act as a touch client of the same software. |
 
 ## Data
 
@@ -38,7 +38,7 @@ Native desktop application, 100 % Python, offline-first. Versions below are the 
 
 | Discarded | Reason |
 |---|---|
-| Web app / Electron / cloud hosting | Adds latency and a network dependency. (An earlier Next.js prototype was archived and replaced by the native app on 2026-11-14.) |
+| Web app / Electron / cloud hosting | Adds latency and a network dependency. (An earlier Next.js prototype was archived and replaced by the native software.) |
 | Mandatory embedded LLM | Multi-GB downloads break reproducibility; L.I.S. uses an optional API plus a deterministic local fallback. |
 | Remote multi-tenant authentication | Crew stations (C001–C004) switch instantly with local isolation. |
 | Docker / Kubernetes / microservices | The whole system starts with one command. |
