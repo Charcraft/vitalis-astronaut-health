@@ -29,9 +29,6 @@ produced, and why it evidences responsible use of Super Intelligence (SI).
 `team/angel_marco/plan-backend-2.md`; detected 10 files that did not exist and a
 17-vs-19 indicator mismatch in the seed.
 
-**Why it evidences responsible use:** the prompt forces the tool to ground the
-plan in the actual repository state instead of trusting the brief — the split was
-built on verified facts, not assumptions.
 
 ---
 
@@ -53,11 +50,6 @@ built on verified facts, not assumptions.
 `db/{errors,types,dexie,repositories}.ts`, `ai/snapshot.ts`, `api/osdr` and
 `api/ai-context` — 61 own tests, later 66/66.
 
-**Why it evidences responsible use:** determinism and traceability are written
-into the prompt itself. The triage engine stayed a pure, tested function; the
-thresholds were validated 1:1 against the seed (24 out-of-range readings verified
-by script); and no AI sits in the decision path.
-
 ---
 
 ## BA-03 · 20:15 — Medical protocols in plain language, sourced and flagged
@@ -73,10 +65,6 @@ by script); and no AI sits in the decision path.
 
 **Produced:** `protocolos.json` (4 protocols), `knowledge/client.ts`
 (`protocoloPara`/`listarProtocolos`), `api/protocolos` — 8 tests.
-
-**Why it evidences responsible use:** the prompt enforces source citation, plain
-language, and a ban on prescription/diagnosis; adapted clinical content is
-explicitly flagged `[POR VALIDAR]` rather than asserted.
 
 ---
 
@@ -94,10 +82,6 @@ explicitly flagged `[POR VALIDAR]` rather than asserted.
 **Produced:** the `Sexo` type and `rangoReferenciaPorSexo`; creatinine M/F range
 (source UCSF Health, verified by fetch, `[POR VALIDAR]`); `tripulacion.json`
 `[SUPUESTO]` + `sexoDe()` — 9 tests.
-
-**Why it evidences responsible use:** the prompt forbids invention, requires
-fetch-verification with URL and date, and prefers restraint (BUN left out because
-its sex-dependence could not be confirmed with figures) over completeness.
 
 ---
 
