@@ -6,7 +6,7 @@ NASA Space Apps 2026 permits SI tools "to accelerate innovation" but not to come
 
 | Area | SI tool | What it did | Human control |
 |---|---|---|---|
-| Code (backend, desktop UI, tablet bridge) | Antigravity agent; Claude Code | Wrote and refactored most of the Python code from the team's prompts, ran and fixed the tests | The team set the scope, reviewed behaviour on screen, ran the apps and directed every iteration; all releases were approved by a team member |
+| Code (backend, desktop UI, tablet bridge) | Antigravity agent; a second coding agent | Wrote and refactored most of the Python code from the team's prompts, ran and fixed the tests | The team set the scope, reviewed behaviour on screen, ran the apps and directed every iteration; all releases were approved by a team member |
 | Tests | Same | Wrote and ran `unittest` suites (38 tests) and a tablet layout audit | Failures were investigated and fixed; the audit found and fixed a real overlap |
 | Documentation | Same | Drafted English documentation, indicator catalogue and this record from verified sources | Every number has a source or a `[TO BE VALIDATED]` tag; the team reviewed the text |
 | Research | Agent with web search / automated browser | Located and cross-checked official NASA / space-agency pages | Claims verified against the original page and cited in [`DATA_SOURCES.md`](DATA_SOURCES.md) |

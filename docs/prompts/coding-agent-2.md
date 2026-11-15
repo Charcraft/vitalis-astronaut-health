@@ -1,4 +1,4 @@
-# Prompts — Claude Code (Anthropic)
+# Prompts — Coding agent 2
 
 Harness used for the **3D anatomy, de-web-ification, touch UX, tablet version and delivery**. Sessions `1cdd536e` (Nov 14 evening – Nov 15 early) and `e8d6880d` (Nov 15). Times are local (UTC−6). Original prompts are in Spanish (typos kept); e-mail addresses are redacted. Only the prompts that created or reshaped a part of the project are listed.
 

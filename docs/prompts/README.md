@@ -5,7 +5,7 @@ This folder is the public record of **how Super Intelligence (SI) tools were use
 | Harness | Role in the project | File | Prompts |
 |---|---|---|---|
 | **Antigravity** (Google Antigravity CLI agent) | Product build: design, backend, assistant L.I.S., native desktop port, backend integration, alarms, Wellbeing module, releases v1.0.0 → v1.2.0 | [`antigravity.md`](antigravity.md) | 32 entries |
-| **Claude Code** (Anthropic) | 3D anatomy viewer, removal of the web prototype, touch-first UI and alerts, tablet version | [`claude-code.md`](claude-code.md) | 8 entries |
+| **Coding agent 2** | 3D anatomy viewer, removal of the web prototype, touch-first UI and alerts, tablet version | [`coding-agent-2.md`](coding-agent-2.md) | 8 entries |
 
 The other harnesses available to the team (Codex, OpenCode, Cursor, GitHub Copilot, Orca) have **no sessions during the hackathon dates** and are therefore not documented here.
 
@@ -26,12 +26,12 @@ The other harnesses available to the team (Codex, OpenCode, Cursor, GitHub Copil
 | Nov 14 · 14:03–14:50 | Antigravity | AG-03, AG-04 | First prototype, OSD-575 pipeline, backend brief |
 | Nov 14 · 15:21–17:12 | Antigravity | AG-05 … AG-10 | Assistant concept AURA → **L.I.S.**, project renamed **V.I.T.A.L.I.S.** |
 | Nov 14 · 17:55–18:12 | Antigravity | AG-11, AG-12 | Decision: Python backend + **native** desktop app |
-| Nov 14 · 18:49–20:12 | Claude Code | CC-01 … CC-04 | 3D viewer (172 meshes); web prototype archived (`80a311b`) |
-| Nov 14 · 20:25–21:16 | Claude Code | CC-05 … CC-07 | Declutter, touch UI, alerts and organ highlighting |
+| Nov 14 · 18:49–20:12 | Coding agent 2 | CC-01 … CC-04 | 3D viewer (172 meshes); web prototype archived (`80a311b`) |
+| Nov 14 · 20:25–21:16 | Coding agent 2 | CC-05 … CC-07 | Declutter, touch UI, alerts and organ highlighting |
 | Nov 14 · 18:59–23:46 | Antigravity | AG-13 … AG-19 | Agent behaviour, themes, bilingual voice |
 | Nov 15 · 00:29–01:09 | Antigravity | AG-20, AG-21 | Backend integration, Mission Control, **v1.0.0** (`4b196ed`) |
 | Nov 15 · 01:12–03:54 | Antigravity | AG-22 … AG-29 | Yellow-state help, red alarm, live waveforms, **v1.1.0** |
 | Nov 15 · 04:03–04:43 | Antigravity | AG-30 … AG-32 | Wellbeing (NASA BHP), persistence, **v1.2.0** (`ba860cb`) |
-| Nov 15 · 05:09 | Claude Code | CC-08 | Android tablet version, layout audit |
+| Nov 15 · 05:09 | Coding agent 2 | CC-08 | Android tablet version, layout audit |
 
 Time order is exact within each harness; the two harnesses ran partly in parallel, so the timeline above interleaves them.
