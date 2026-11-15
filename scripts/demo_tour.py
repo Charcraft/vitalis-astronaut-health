@@ -2,13 +2,15 @@
 """
 scripts/demo_tour.py — Scripted guided tour of V.I.T.A.L.I.S. for recording a demo video.
 
-Opens the real software full screen on a throw-away database (your data and settings are untouched),
-walks through every major function with English captions, and exits. It drives the same objects a
-user would (navigation, keypad, alerts, assistant, protocols, Mission Control, Wellbeing, themes).
+Opens the real software full screen (light theme, no captions) on a throw-away database — your data
+and settings are untouched — and walks through: the live Overview, the 3D body (all six systems,
+ten organs, camera modes), guided measurement, and how the system reacts to a problem (yellow
+warning → red alert with alarm, organ highlighting, alert panel, suggested protocol, emergency
+protocols and ALSP animations, SBAR to Earth, Mission Control) before returning to normal.
 
-    python scripts/demo_tour.py                       # starts immediately, ~2 minutes
+    python scripts/demo_tour.py                       # starts immediately, ~3.5 minutes
     python scripts/demo_tour.py --go-file go.txt      # waits until go.txt exists (to sync a recorder)
-    python scripts/demo_tour.py --windowed            # no full screen
+    python scripts/demo_tour.py --windowed --fast 0.3 # quick dry run
 
 Audio (BPM tone, alarm, L.I.S. voice) plays normally, so a desktop-audio capture records it.
 """
@@ -27,6 +29,7 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 REPO_URL = "github.com/Charcraft/vitalis-astronaut-health"
+DURACION = 208  # seconds
 
 
 def main() -> int:
@@ -35,7 +38,7 @@ def main() -> int:
     ap.add_argument("--ready-file", default="", help="written when the window is up and warmed")
     ap.add_argument("--go-file", default="", help="tour starts when this file exists")
     ap.add_argument("--done-file", default="", help="written when the tour ends")
-    ap.add_argument("--fast", type=float, default=1.0, help="time scale (0.5 = twice as fast), for dry runs")
+    ap.add_argument("--fast", type=float, default=1.0, help="time scale (0.3 = ~3x faster), for dry runs")
     args = ap.parse_args()
 
     import backend.database as bd
@@ -44,8 +47,7 @@ def main() -> int:
     bd.DB_PATH = os.path.join(tmp, "demo.db")  # fresh database: seeded from the bundled OSD-575 data
     bd.init_db()
 
-    from PySide6.QtCore import QPoint, Qt, QTimer
-    from PySide6.QtGui import QFont
+    from PySide6.QtCore import Qt, QTimer
     from PySide6.QtWidgets import QApplication, QLabel
 
     from backend.database import atender_solicitud_ayuda, crear_solicitud_ayuda, listar_solicitudes_ayuda
@@ -60,35 +62,18 @@ def main() -> int:
     else:
         v.showFullScreen()
     st = v.state
+    st.actualizar_config(temaVisual="claro")
 
-    # ---------------------------------------------------------------- captions
-    caja = QLabel(v)
-    caja.setWordWrap(True)
-    caja.setAlignment(Qt.AlignCenter)
-    caja.setAttribute(Qt.WA_TransparentForMouseEvents, True)
-    caja.setStyleSheet("background: rgba(34,38,48,0.95); color: #F2F4F8; border: 1px solid #4A5366; border-radius: 14px; padding: 14px 26px;")
-    caja.setFont(QFont("Segoe UI", 21, QFont.DemiBold))
-    caja.hide()
+    # Title / closing cards (the only text overlays; no subtitles)
     tarjeta = QLabel(v)
     tarjeta.setWordWrap(True)
     tarjeta.setAlignment(Qt.AlignCenter)
     tarjeta.setAttribute(Qt.WA_TransparentForMouseEvents, True)
-    tarjeta.setStyleSheet("background: rgba(7,8,10,0.94); color: #F2F4F8; padding: 40px;")
+    tarjeta.setStyleSheet("background: rgba(255,255,255,0.97); color: #0B0D10; padding: 40px;")
     tarjeta.hide()
 
-    def pos_capas() -> None:
-        w, h = v.width(), v.height()
-        caja.setGeometry(int(w * 0.07), h - 190, int(w * 0.62), 92)
-        tarjeta.setGeometry(0, 0, w, h)
-
-    def subtitulo(txt: str) -> None:
-        pos_capas()
-        caja.setText(txt)
-        caja.show()
-        caja.raise_()
-
     def titulo(html: str) -> None:
-        pos_capas()
+        tarjeta.setGeometry(0, 0, v.width(), v.height())
         tarjeta.setText(html)
         tarjeta.show()
         tarjeta.raise_()
@@ -96,7 +81,6 @@ def main() -> int:
     def quitar_titulo() -> None:
         tarjeta.hide()
 
-    # ---------------------------------------------------------------- acciones
     def seguro(fn):
         def _w():
             try:
@@ -109,22 +93,20 @@ def main() -> int:
         for i in range(veces):
             QTimer.singleShot(int(i * cada_ms * args.fast), seguro(fn))
 
-    def orbitar() -> None:
-        v.visor_3d.orbitar(14, 0)
+    def orbitar(dx: float = 14, n: int = 10, cada: int = 400):
+        return lambda: repetir(lambda: v.visor_3d.orbitar(dx, 0), n, cada)
 
     def teclear(secuencia: str) -> None:
         for i, k in enumerate(secuencia):
             QTimer.singleShot(int(i * 450 * args.fast), seguro(lambda k=k: v.vista_medir._on_tecla(k)))
 
-    sbar = {"id": None}
-
     def pedir_ayuda() -> None:
-        r = crear_solicitud_ayuda(
-            crew_id_solicitante="C001", destinatario="CMO_A_BORDO_C001", nivel="CRITICO",
-            motivo="Oxygen saturation critically low", resumen_clinico="SpO2 below threshold; crew member reports shortness of breath.",
+        crear_solicitud_ayuda(
+            crew_id_solicitante="C003", destinatario="CMO_A_BORDO_C001", nivel="CRITICO",
+            motivo="Oxygen saturation critically low",
+            resumen_clinico="SpO2 below threshold; crew member reports shortness of breath.",
             protocolo_sugerido_id="respiratorio",
         )
-        sbar["id"] = (r or {}).get("id")
         st.ayudaCambiada.emit()
 
     def atender_ayuda() -> None:
@@ -151,73 +133,116 @@ def main() -> int:
     def vista(p: str, **kw):
         return lambda: st.ir_a(p, **kw)
 
-    # ---------------------------------------------------------------- guion (segundos desde el inicio)
-    T = [
-        (0, lambda: titulo(
-            "<div style='font-size:64px;font-weight:700;letter-spacing:6px'>V.I.T.A.L.I.S.</div>"
-            "<div style='font-size:26px;margin-top:14px'>Vital Information Telemetry and Life-support In Space</div>"
-            "<div style='font-size:22px;margin-top:26px;color:#9AA3B2'>Offline-first astronaut health monitoring · NASA Space Apps · Team ROCKET</div>")),
-        (5, quitar_titulo),
-        (5, vista("inicio")),
-        (5.5, lambda: subtitulo("Overview · live vitals with waveforms, a heartbeat tone that follows the BPM, and a 3D body of 172 meshes")),
-        (8, lambda: repetir(orbitar, 14, 400)),
-        (15, vista("cuerpo")),
-        (15.5, lambda: subtitulo("3D Body · six systems, organs you can touch, traffic-light status from NASA OSD-575 baselines")),
-        (17, lambda: st.set_sistema("cardiovascular")),
-        (20, lambda: st.set_sistema("respiratorio")),
-        (23, lambda: st.set_sistema("neuro-ocular")),
-        (25, lambda: v.visor_3d.cambiar_modo_vista("lateral")),
-        (27, lambda: v.visor_3d.cambiar_modo_vista("capas")),
-        (29, vista("medir", indicadorId="glucose")),
-        (29.5, lambda: subtitulo("Measure · how to take it in microgravity, touch keypad, deterministic triage with a cited rule")),
-        (32, lambda: teclear("103")),
-        (35.5, lambda: v.vista_medir._registrar_lectura()),
-        (40, vista("historial", paramId="glucose")),
-        (40.5, lambda: subtitulo("History · each astronaut's own trajectory from real NASA flight data (L-92 to R+194)")),
-        (47, lambda: get_runtime().forzar_anomalia("spo2", "CRITICO", duracion_ms=34000)),
-        (47.2, vista("cuerpo")),
-        (47.5, lambda: subtitulo("Red state · affected organs pulse in triage colour, a soft intermittent alarm sounds, guidance stays calm")),
-        (53, lambda: v._abrir_panel_avisos()),
-        (57, lambda: v.panel_avisos.hide()),
-                (60.5, lambda: subtitulo("L.I.S. · on-board assistant: grounded on local data, never invents a number, controls the whole app")),
-        (62, lambda: preguntar("Any anomalies?")),
-        (70, lambda: preguntar("Show me the lungs")),
-        (74, lambda: get_runtime().limpiar_anomalias()),
-        (74, lis_replegar),
-        (74.5, vista("emergencia", protocoloId="respiratorio")),
-        (75, lambda: subtitulo("Emergency · step-by-step protocol, procedural animations, CPR metronome and an SBAR report to Earth")),
-        (78, lambda: v.vista_emergencia._toggle_metronomo()),
-        (82, pedir_ayuda),
-        (86, lambda: v.vista_emergencia._toggle_metronomo()),
-        (86.5, atender_ayuda),
-        (88, vista("sala", panel="vivo")),
-        (88.5, lambda: subtitulo("Mission Control · crew stations at 1 Hz, scenarios, events, mission log and the prioritised Earth queue")),
-        (91, lambda: v.vista_sala.seleccionar_panel("escenario")),
-        (94, lambda: v.vista_sala.seleccionar_panel("eventos")),
-        (97, lambda: v.vista_sala.seleccionar_panel("cola")),
-        (100, vista("salud_mental", seccion="bitacora")),
-        (100.5, lambda: subtitulo("Wellbeing · NASA behavioral health: logbook, PVT-B reaction test, sleep, decompression, Earth link")),
-        (103, lambda: v.vista_salud_mental.seleccionar_seccion("pvt")),
-        (106, lambda: v.vista_salud_mental.seleccionar_seccion("descompresion")),
-        (109, vista("lis")),
-        (109.5, lambda: subtitulo("Settings · dark and light themes, English and Spanish, voice, alarm and assistant options")),
-        (111, lambda: st.actualizar_config(temaVisual="claro")),
-        (114, lambda: st.actualizar_config(temaVisual="oscuro")),
-        (115.5, lambda: caja.hide()),
-        (115.5, lambda: titulo(
-            "<div style='font-size:46px;font-weight:700'>Measure · Compare · Decide · Act</div>"
-            "<div style='font-size:26px;margin-top:22px'>26 parameters · 172-mesh 3D body · deterministic triage · 100% offline</div>"
-            "<div style='font-size:24px;margin-top:22px;color:#9AA3B2'>38 automated tests · 29 views audited at touch size · MIT licence</div>"
-            f"<div style='font-size:30px;margin-top:34px'>{REPO_URL}</div>"
-            "<div style='font-size:18px;margin-top:26px;color:#9AA3B2'>Not a medical device · NASA OSDR OSD-575 · BodyParts3D / HRA (CC BY 4.0)</div>")),
-    ]
+    def organo(nombre: str):
+        return lambda: v._on_control_visor_3d("organo", nombre)
+
+    def paso(i: int):
+        return lambda: v.vista_emergencia._mostrar_paso(i)
+
+    def equipo(eid: str):
+        return lambda: v.vista_emergencia._seleccionar_equipo_anim(eid)
+
+    def proto(pid: str):
+        return lambda: st.ir_a("emergencia", protocoloId=pid)
+
+    def metro():
+        return lambda: v.vista_emergencia._toggle_metronomo()
+
+    T: list = []
+
+    def at(t: float, fn) -> None:
+        T.append((t, fn))
+
+    # ------------------------------------------------------------- 0:00 title + Overview
+    at(0, lambda: titulo(
+        "<div style='font-size:64px;font-weight:700;letter-spacing:6px'>V.I.T.A.L.I.S.</div>"
+        "<div style='font-size:26px;margin-top:14px'>Vital Information Telemetry and Life-support In Space</div>"
+        "<div style='font-size:22px;margin-top:26px;color:#5B6472'>Offline-first astronaut health monitoring</div>"))
+    at(4, quitar_titulo)
+    at(4, vista("inicio"))
+    at(5, orbitar(12, 16, 420))
+
+    # ------------------------------------------------------------- 3D body: systems, organs, camera
+    at(12, vista("cuerpo"))
+    sistemas = ["cardiovascular", "respiratorio", "neuro-ocular", "metabolico", "musculoesqueletico", "inmune-radiacion"]
+    for i, s in enumerate(sistemas):
+        at(12.5 + i * 3.5, (lambda s=s: st.set_sistema(s)))
+        at(13.5 + i * 3.5, orbitar(10, 5, 380))
+    organos = ["corazon", "pulmones", "higado", "riñones", "cerebro", "ojos", "estomago", "pancreas", "intestino", "huesos"]
+    for i, o in enumerate(organos):
+        at(34 + i * 2.3, organo(o))
+    at(57, lambda: v.visor_3d.cambiar_modo_vista("lateral"))
+    at(60, lambda: v.visor_3d.cambiar_modo_vista("capas"))
+    at(62, lambda: repetir(lambda: v.visor_3d._zoom(1.12), 4, 300))
+    at(64, lambda: repetir(lambda: v.visor_3d.orbitar(18, 0), 8, 250))
+    at(66, lambda: v.visor_3d.cambiar_modo_vista("frontal"))
+
+    # ------------------------------------------------------------- guided measurement + history
+    at(68, vista("medir", indicadorId="glucose"))
+    at(70, lambda: teclear("103"))
+    at(73.5, lambda: v.vista_medir._registrar_lectura())
+    at(78, vista("historial", paramId="glucose"))
+
+    # ------------------------------------------------------------- the system reacts to a problem
+    at(83, vista("cuerpo"))
+    at(83.2, lambda: st.set_sistema("cardiovascular"))
+    at(84, lambda: get_runtime().forzar_anomalia("heart_rate", "ATENCION", duracion_ms=150000))   # yellow
+    at(90, lambda: v._abrir_panel_avisos())
+    at(94, lambda: v.panel_avisos.hide())
+    at(95, lambda: get_runtime().forzar_anomalia("spo2", "CRITICO", duracion_ms=150000))          # red
+    at(96, lambda: st.set_sistema("respiratorio"))
+    at(103, lambda: v._abrir_panel_avisos())
+    at(108, lambda: v._protocolo_desde_aviso("respiratorio"))
+
+    # ------------------------------------------------------------- emergency protocols
+    at(109, paso(0))
+    at(113, paso(1))
+    at(117, paso(2))
+    at(120, pedir_ayuda)                                   # SBAR to Earth
+    at(124, proto("cardiovascular"))
+    at(125, paso(0))
+    at(128, metro())
+    at(129, paso(1))
+    at(133, paso(2))
+    at(136, metro())
+    at(137, proto("neurologico"))
+    at(138, paso(0))
+    at(142, paso(1))
+    at(146, proto("trauma"))
+    at(147, paso(0))
+    at(151, paso(1))
+    at(155, equipo("dea"))
+    at(159, equipo("iv"))
+    at(163, equipo("via-aerea"))
+    at(167, equipo("farmacos"))
+
+    # ------------------------------------------------------------- assistant + Mission Control
+    at(171, vista("cuerpo"))
+    at(172, lambda: preguntar("Any anomalies?"))
+    at(181, lis_replegar)
+    at(181.5, vista("sala", panel="eventos"))
+    at(185, lambda: v.vista_sala.seleccionar_panel("cola"))
+    at(189, lambda: v.vista_sala.seleccionar_panel("vivo"))
+
+    # ------------------------------------------------------------- back to normal
+    at(192, lambda: get_runtime().limpiar_anomalias())
+    at(192, atender_ayuda)
+    at(192.5, vista("cuerpo"))
+    at(197, vista("salud_mental", seccion="pvt"))
+    at(200, lambda: v.vista_salud_mental.seleccionar_seccion("descompresion"))
+    at(203, vista("lis"))
+    at(205, lambda: titulo(
+        "<div style='font-size:46px;font-weight:700'>Measure · Compare · Decide · Act</div>"
+        "<div style='font-size:26px;margin-top:22px'>26 parameters · 172-mesh 3D body · deterministic triage · 100% offline</div>"
+        "<div style='font-size:24px;margin-top:22px;color:#5B6472'>38 automated tests · 29 views audited at touch size · MIT licence</div>"
+        f"<div style='font-size:30px;margin-top:34px'>{REPO_URL}</div>"
+        "<div style='font-size:18px;margin-top:26px;color:#5B6472'>Not a medical device · NASA OSDR OSD-575 · BodyParts3D / HRA (CC BY 4.0)</div>"))
 
     def lanzar() -> None:
         t0 = time.monotonic()
         print("tour: start")
         for seg, fn in T:
             QTimer.singleShot(int(seg * 1000 * args.fast), seguro(fn))
-        fin = 122 * args.fast
 
         def terminar() -> None:
             if args.done_file:
@@ -226,7 +251,7 @@ def main() -> int:
             sys.stdout.flush()
             QTimer.singleShot(1500, lambda: os._exit(0))  # skip VTK teardown (can crash on exit)
 
-        QTimer.singleShot(int(fin * 1000), terminar)
+        QTimer.singleShot(int(DURACION * 1000 * args.fast), terminar)
 
     def esperar_go() -> None:
         if not args.go_file or os.path.exists(args.go_file):
@@ -235,13 +260,12 @@ def main() -> int:
             QTimer.singleShot(100, esperar_go)
 
     def listo() -> None:
-        pos_capas()
         st.ir_a("inicio")
         if args.ready_file:
             open(args.ready_file, "w").write("ready")
         esperar_go()
 
-    QTimer.singleShot(4000, listo)  # warm-up: 3D scene, runtime, first frames
+    QTimer.singleShot(5000, listo)  # warm-up: theme, 3D scene, runtime, first frames
     rc = app.exec()
     try:
         v._cerrar_recursos()
