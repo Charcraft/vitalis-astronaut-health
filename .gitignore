@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+.venv-*/
+# Local runtime data (created on first run; never commit)
+data/
+logs/
+*.db
+*.db-wal
+*.db-shm
+# Secrets and editors
+.env
+.env.*
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

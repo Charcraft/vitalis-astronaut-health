@@ -1,0 +1,184 @@
+{
+  "protocolos": [
+    {
+      "id": "emergencia-cardiorrespiratoria",
+      "codigo": "ISS-CREW-CR1",
+      "titulo": "Cardiorespiratory emergency",
+      "resumen": "A crew member has a red light on pulse, oxygen, or breathing. You are not the medic: your job is to call, secure, and stay.",
+      "prioridad": "Crew trigger card · escalate to the CMO",
+      "equipoUbicacion": "Voice loop: intercom channel 2 · PBA mask: forward bulkhead · Handrail and harness: any node",
+      "fuente": "Adapted for non-medical crew from NASA HRP cardiovascular risks. [TO BE VALIDATED]",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Call the Crew Medical Officer",
+          "instruccion": "Open the voice loop and say the crew member's name and which light is red: pulse, oxygen, or breathing.",
+          "nota0G": "Say the numbers you see on screen, not what you think they mean.",
+          "duracionS": 9,
+          "visual": "svg:comms"
+        },
+        {
+          "orden": 2,
+          "titulo": "Help the crew member stay still",
+          "instruccion": "In microgravity nobody falls, they float. Clip the crew member to a handrail or harness so they cannot drift.",
+          "nota0G": "A drifting patient pulls the oxygen line and the sensor cable with them.",
+          "duracionS": 8,
+          "visual": "svg:anchor"
+        },
+        {
+          "orden": 3,
+          "titulo": "Do not leave them alone",
+          "instruccion": "Ask about chest pain, shortness of breath, or dizziness, and report the answer to the CMO.",
+          "nota0G": "Stay within arm's reach and keep talking; confusion is a symptom, not a mood.",
+          "duracionS": 9,
+          "visual": "svg:checkin"
+        },
+        {
+          "orden": 4,
+          "titulo": "Place the portable oxygen mask",
+          "instruccion": "If the oxygen light is red, put the PBA mask on the crew member's face and ask them to breathe normally.",
+          "nota0G": "Seal the mask before you look for the cause of the alarm.",
+          "duracionS": 8,
+          "visual": "svg:pba"
+        },
+        {
+          "orden": 5,
+          "titulo": "Repeat the reading with new hardware",
+          "instruccion": "Measure again with a new sensor or cartridge to rule out an equipment error before anyone decides.",
+          "nota0G": "A single red reading is a question, not a diagnosis.",
+          "duracionS": 8,
+          "visual": "svg:sensor"
+        }
+      ]
+    },
+    {
+      "id": "hipercapnia-cabina",
+      "codigo": "ISS-CREW-CO2",
+      "titulo": "High cabin CO2 (hypercapnia)",
+      "resumen": "The cabin CO2 reading is climbing. Reduce the source, restore the air, and log the value.",
+      "prioridad": "Crew trigger card · escalate to the CMO",
+      "equipoUbicacion": "CO2 display: environmental rack · Scrubber status: cabin panel · PBA mask: forward bulkhead",
+      "fuente": "Adapted from NASA HRP closed and hostile environment hazards (cabin CO2). [TO BE VALIDATED]",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Read the CO2 value out loud",
+          "instruccion": "Say the exact number on the display to the CMO, not a range and not an impression.",
+          "nota0G": "CO2 pockets form where ventilation is weak; the sensor position matters.",
+          "duracionS": 8,
+          "visual": "svg:co2read"
+        },
+        {
+          "orden": 2,
+          "titulo": "Cut the physical activity",
+          "instruccion": "Ask the whole crew to slow down: less movement means less CO2 produced in the same volume.",
+          "nota0G": "Exercise on orbit can double CO2 production for the whole module.",
+          "duracionS": 9,
+          "visual": "svg:activity"
+        },
+        {
+          "orden": 3,
+          "titulo": "Check the air scrubber",
+          "instruccion": "Confirm that the scrubber and filters are running and that no alarm is latched on the panel.",
+          "nota0G": "A filter that is on but saturated moves air without removing CO2.",
+          "duracionS": 8,
+          "visual": "svg:scrubber"
+        },
+        {
+          "orden": 4,
+          "titulo": "Use the portable mask if it keeps rising",
+          "instruccion": "If the level does not fall, put on the PBA mask while the atmosphere recovers.",
+          "nota0G": "The mask buys time; it does not fix the cabin.",
+          "duracionS": 8,
+          "visual": "svg:pba"
+        },
+        {
+          "orden": 5,
+          "titulo": "Log the reading for Earth",
+          "instruccion": "Store the value in the deferred queue so it travels to ground control with the next synchronization.",
+          "nota0G": "The queue keeps the timestamp even if the console loses power.",
+          "duracionS": 7,
+          "visual": "svg:queue"
+        }
+      ]
+    },
+    {
+      "id": "radiacion-acumulada",
+      "codigo": "ISS-CREW-RAD",
+      "titulo": "Accumulated radiation",
+      "resumen": "The dosimeter shows a cumulative dose above the crew limit. Shield the crew member and record the number.",
+      "prioridad": "Crew trigger card · escalate to the Flight Surgeon",
+      "equipoUbicacion": "Dosimeter display: crew console · Shielded zone: service module aft",
+      "fuente": "Adapted from NASA HRP space radiation hazards. [TO BE VALIDATED]",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Read the accumulated dose",
+          "instruccion": "Say the dose on screen to the CMO with its unit and the period it covers.",
+          "nota0G": "Cumulative dose is a career number; a single reading is not the whole story.",
+          "duracionS": 8,
+          "visual": "svg:dose"
+        },
+        {
+          "orden": 2,
+          "titulo": "Move to the most shielded zone",
+          "instruccion": "Move the crew member to the area with the thickest shielding and keep them there.",
+          "nota0G": "Water and equipment racks are shielding: put mass between the crew and the source.",
+          "duracionS": 9,
+          "visual": "svg:shelter"
+        },
+        {
+          "orden": 3,
+          "titulo": "Cut exposure time and log it",
+          "instruccion": "Reduce the time spent in the exposed area and record the reading for the next synchronization.",
+          "nota0G": "Dose is rate multiplied by time: leaving early is the intervention.",
+          "duracionS": 8,
+          "visual": "svg:queue"
+        }
+      ]
+    },
+    {
+      "id": "alteracion-metabolica",
+      "codigo": "ISS-CREW-MET",
+      "titulo": "Metabolic change in the lab panel",
+      "resumen": "One analyte left its reference range. Confirm the sample before anyone acts on it.",
+      "prioridad": "Crew trigger card · escalate to the Flight Surgeon",
+      "equipoUbicacion": "Blood analyzer: lab rack · Baseline: personal OSD-575 record · Cartridges: lab drawer",
+      "fuente": "NASA OSDR OSD-575 reference ranges plus a non-medical crew adaptation. [TO BE VALIDATED]",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Repeat the measurement",
+          "instruccion": "Run a new cartridge to confirm the value before acting on it.",
+          "nota0G": "A used cartridge or a short sample is the most common false alarm.",
+          "duracionS": 8,
+          "visual": "svg:cartridge"
+        },
+        {
+          "orden": 2,
+          "titulo": "Compare with your own baseline",
+          "instruccion": "Look at your baseline on screen: the app already compares it. Yellow is an alert, not an emergency.",
+          "nota0G": "Your normal is not the population average; it is your own curve.",
+          "duracionS": 9,
+          "visual": "svg:baseline"
+        },
+        {
+          "orden": 3,
+          "titulo": "Tell the CMO the value and the drift",
+          "instruccion": "Report the value and how far it moved from your normal, not just whether it is high or low.",
+          "nota0G": "A small drift over weeks can matter more than one outlier.",
+          "duracionS": 8,
+          "visual": "svg:comms"
+        },
+        {
+          "orden": 4,
+          "titulo": "Queue the reading for the Flight Surgeon",
+          "instruccion": "Store the result so the queue sends it to the Flight Surgeon when the link returns.",
+          "nota0G": "Deferred synchronization is the normal path, not a failure.",
+          "duracionS": 7,
+          "visual": "svg:queue"
+        }
+      ]
+    }
+  ]
+}

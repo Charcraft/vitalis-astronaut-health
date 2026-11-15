@@ -1,0 +1,160 @@
+{
+  "protocolos": [
+    {
+      "id": "cardiovascular",
+      "codigo": "ISS-EMERG-CV1",
+      "prioridad": "Immediate priority · AEB central scenario",
+      "titulo": "Chest pain or cardiovascular collapse",
+      "resumen": "Acute chest pressure, syncope, arrhythmia, or cardiac arrest in microgravity.",
+      "equipoUbicacion": "AED and pads: Medical Rack B2 · CMRS stretcher: Node 2 · ALSP kit: Red Bag",
+      "fuente": "Hinkelbein et al. (AHA / Aerospace Med CPR 0G) & ISS Medical Checklist (JSC-48522)",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Cabin safety and response check",
+          "instruccion": "Rule out a toxic leak or environmental hypoxia (check cabin O2/CO2). Assess consciousness and breathing in under 10 seconds.",
+          "nota0G": "Anchor your feet on the floor rails before touching your crewmate.",
+          "duracionS": 8,
+          "visual": "video:dea:0:8"
+        },
+        {
+          "orden": 2,
+          "titulo": "Restrain the patient before compressions",
+          "instruccion": "Without CMRS straps or feet against the opposite wall (Handstand), compression force pushes the rescuer away by Newton's third law.",
+          "nota0G": "If alone without CMRS straps, use Handstand: feet on the upper wall, hands on the sternum, 110 compressions/min at 5–6 cm.",
+          "duracionS": 12,
+          "visual": "video:dea:41:12"
+        },
+        {
+          "orden": 3,
+          "titulo": "AED placement and electrical isolation in 0G",
+          "instruccion": "Apply AED pads on a dry chest. Before the shock, verify that no crew member is floating in contact with the patient or the metal structure.",
+          "nota0G": "Sweat does not run in 0G: it forms a conductive film over the chest. Dry completely with gauze before applying pads.",
+          "duracionS": 10,
+          "visual": "video:dea:9:10"
+        },
+        {
+          "orden": 4,
+          "titulo": "Airway and 100% oxygen",
+          "instruccion": "Keep the 30:2 ratio. Connect the portable oxygen mask (PBA) and record vital signs every 2 minutes.",
+          "nota0G": "Avoid hyperventilation; secure the face seal with the elastic strap.",
+          "duracionS": 10,
+          "visual": "video:airway:11:10"
+        },
+        {
+          "orden": 5,
+          "titulo": "SBAR package for the Flight Surgeon",
+          "instruccion": "Transmit the automatic log with UTC timestamps, completed cycles, and the latest OSD-575 baseline when the link window returns.",
+          "nota0G": "The package stays in local storage even if console power is lost.",
+          "duracionS": 9,
+          "visual": "svg:package"
+        }
+      ]
+    },
+    {
+      "id": "respiratorio",
+      "codigo": "ISS-EMERG-OX2",
+      "prioridad": "Environmental and respiratory",
+      "titulo": "Hypoxia or excess CO2 (hypercapnia)",
+      "resumen": "Acute dyspnea, SpO2 below 90%, confusion, or headache from local CO2 accumulation.",
+      "equipoUbicacion": "PBA 100% O2 mask: forward bulkhead · Portable CO2 analyzer: Environmental Rack",
+      "fuente": "ISS Medical Checklist (JSC-48522) & NASA-STD-3001 Vol. 2",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Place the portable O2 mask (PBA) immediately",
+          "instruccion": "Isolate the airway from cabin air before investigating the environmental failure.",
+          "nota0G": "In 0G there is no natural convection: CO2 pockets form around the head if ventilation fails.",
+          "duracionS": 8,
+          "visual": "svg:pba"
+        },
+        {
+          "orden": 2,
+          "titulo": "Move to a module with forced ventilation",
+          "instruccion": "Move the crew member to an active laminar-flow duct and measure SpO2 and respiratory rate.",
+          "nota0G": "Check that the pulse oximeter has good capillary contact.",
+          "duracionS": 9,
+          "visual": "svg:cabin"
+        },
+        {
+          "orden": 3,
+          "titulo": "Assess bicarbonate and total blood CO2",
+          "instruccion": "Compare with the carbon_dioxide analyte in your personal OSD-575 baseline (20–32 mmol/L).",
+          "nota0G": "Store the event in the deferred queue for ground medical control.",
+          "duracionS": 9,
+          "visual": "svg:labs_ox2"
+        }
+      ]
+    },
+    {
+      "id": "neurologico",
+      "codigo": "ISS-EMERG-NV3",
+      "prioridad": "Neurological / neuro-ocular",
+      "titulo": "Sudden visual change or severe vertigo",
+      "resumen": "Central scotoma, diplopia, severe intracranial headache, or acute spatial disorientation.",
+      "equipoUbicacion": "Amsler grid and ophthalmoscope: Medical Drawer M1 · Soft restraint: Hab Node",
+      "fuente": "NASA HRP SANS Evidence Report & ISS Medical Checklist",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Gentle immobilization and gaze fixation",
+          "instruccion": "Hold the crew member to a fixed point to stop the vestibular-visual conflict in microgravity.",
+          "nota0G": "Avoid rapid head turns (Coriolis acceleration).",
+          "duracionS": 9,
+          "visual": "svg:fixation"
+        },
+        {
+          "orden": 2,
+          "titulo": "Rapid acuity and Amsler grid test",
+          "instruccion": "Test each eye at 30 cm and record central line distortion or a blind spot.",
+          "nota0G": "Compare with the pre-flight baseline.",
+          "duracionS": 9,
+          "visual": "svg:amsler"
+        },
+        {
+          "orden": 3,
+          "titulo": "Rule out concomitant hypoglycemia",
+          "instruccion": "Take a capillary glucose and electrolytes (sodium/potassium) and package the results for the Flight Surgeon.",
+          "nota0G": "OSD-575 documented glucose values of 36 and 44 mg/dL; always rule out a metabolic cause.",
+          "duracionS": 9,
+          "visual": "svg:glucose"
+        }
+      ]
+    },
+    {
+      "id": "trauma",
+      "codigo": "ISS-EMERG-TR4",
+      "prioridad": "Trauma and extravehicular activity",
+      "titulo": "Hemorrhage or injury after EVA",
+      "resumen": "Bleeding control in 0G, CMRS stretcher fixation, and monitoring for rhabdomyolysis or dehydration.",
+      "equipoUbicacion": "Trauma kit and compression bandage: Red Bag · CMRS stretcher: Node 2",
+      "fuente": "ISS Medical Checklist (JSC-48522)",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Direct pressure with body anchoring",
+          "instruccion": "Apply hemostatic gauze and an elastic compression bandage while keeping your feet anchored to the rail.",
+          "nota0G": "Venous blood forms adherent domes in 0G; use suction or absorbent gauze to avoid floating droplets.",
+          "duracionS": 9,
+          "visual": "svg:wound"
+        },
+        {
+          "orden": 2,
+          "titulo": "Immobilize on the CMRS stretcher",
+          "instruccion": "Secure the pelvic and thoracic straps and monitor heart rate and blood pressure every 5 minutes.",
+          "nota0G": "Intravascular volume loss is tolerated worse after microgravity adaptation.",
+          "duracionS": 10,
+          "visual": "svg:cmrs"
+        },
+        {
+          "orden": 3,
+          "titulo": "Biochemical control (AST, ALT, creatinine, potassium)",
+          "instruccion": "Record the OSD-575 panel analytes and package the log for Earth.",
+          "nota0G": "Deferred synchronization is enabled.",
+          "duracionS": 9,
+          "visual": "svg:labs_tr4"
+        }
+      ]
+    }
+  ]
+}

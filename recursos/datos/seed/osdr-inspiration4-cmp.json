@@ -1,0 +1,2317 @@
+{
+  "meta": {
+    "fuente": "NASA Open Science Data Repository (OSDR)",
+    "accesion": "OSD-575",
+    "titulo": "SpaceX Inspiration4 Blood Serum Metabolic Panel and Immune/Cytokine Panel",
+    "archivo": "LSDS-8_Comprehensive_Metabolic_Panel_CMP_TRANSFORMED.csv",
+    "url": "https://osdr.nasa.gov/geode-py/ws/studies/OSD-575/download?source=datamanager&file=LSDS-8_Comprehensive_Metabolic_Panel_CMP_TRANSFORMED.csv",
+    "paginaDataset": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-575",
+    "obtenido": "2026-11-13",
+    "tripulantes": [
+      "C001",
+      "C002",
+      "C003",
+      "C004"
+    ],
+    "puntosTemporales": 7,
+    "nota": "Datos desidentificados de los cuatro tripulantes de Inspiration4, anonimizados como C001-C004. Los rangos de referencia provienen del propio dataset, no de una tabla externa.",
+    "licencia": "Datos abiertos de NASA OSDR. Ver términos del repositorio.",
+    "generadoPor": "scripts/normalizar-osdr.py"
+  },
+  "timepoints": [
+    {
+      "id": "L-92",
+      "diasRelativosAlLanzamiento": -92,
+      "fase": "pre-vuelo"
+    },
+    {
+      "id": "L-44",
+      "diasRelativosAlLanzamiento": -44,
+      "fase": "pre-vuelo"
+    },
+    {
+      "id": "L-3",
+      "diasRelativosAlLanzamiento": -3,
+      "fase": "pre-vuelo"
+    },
+    {
+      "id": "R+1",
+      "diasRelativosAlLanzamiento": 1,
+      "fase": "post-vuelo"
+    },
+    {
+      "id": "R+45",
+      "diasRelativosAlLanzamiento": 45,
+      "fase": "post-vuelo"
+    },
+    {
+      "id": "R+82",
+      "diasRelativosAlLanzamiento": 82,
+      "fase": "post-vuelo"
+    },
+    {
+      "id": "R+194",
+      "diasRelativosAlLanzamiento": 194,
+      "fase": "post-vuelo"
+    }
+  ],
+  "indicadores": [
+    {
+      "id": "albumin",
+      "nombre": "Albúmina",
+      "sistema": "proteínas",
+      "unidad": "g/dL",
+      "rangoReferencia": {
+        "min": 3.6,
+        "max": 5.1
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 5.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 5.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 4.9
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 4.9
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 4.9
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 5.1
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 4.6
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 4.9
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 4.6
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 4.3
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 4.4
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 4.2
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 4.5
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 4.3
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 4.4
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 4.9
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 4.2
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 4.2
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 4.5
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 4.8
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 4.4
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 4.6
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 4.4
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 4.6
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 4.5
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 4.5
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 4.6
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 4.3
+          }
+        ]
+      }
+    },
+    {
+      "id": "alkaline_phosphatase",
+      "nombre": "Fosfatasa alcalina",
+      "sistema": "hígado",
+      "unidad": "U/L",
+      "rangoReferencia": {
+        "min": 36.0,
+        "max": 130.0
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 51.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 46.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 45.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 52.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 46.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 49.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 50.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 73.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 78.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 68.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 71.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 65.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 65.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 66.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 33.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 41.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 31.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 41.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 51.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 50.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 43.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 58.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 56.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 55.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 62.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 60.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 54.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 57.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "alt",
+      "nombre": "ALT (alanina aminotransferasa)",
+      "sistema": "hígado",
+      "unidad": "U/L",
+      "rangoReferencia": {
+        "min": 9.0,
+        "max": 46.0
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 15.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 16.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 13.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 9.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 11.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 15.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 15.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 16.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 24.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 16.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 14.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 17.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 17.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 12.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 13.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 13.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 17.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 12.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 10.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 37.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 35.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 37.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 40.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 32.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 43.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "ast",
+      "nombre": "AST (aspartato aminotransferasa)",
+      "sistema": "hígado",
+      "unidad": "U/L",
+      "rangoReferencia": {
+        "min": 10.0,
+        "max": 40.0
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 15.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 18.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 15.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 16.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 13.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 16.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 12.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 31.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 40.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 17.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 21.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 24.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 15.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 17.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 13.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 18.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 15.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 15.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 36.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 44.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 39.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 48.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 33.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 25.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 38.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "total_bilirubin",
+      "nombre": "Bilirrubina total",
+      "sistema": "hígado",
+      "unidad": "mg/dL",
+      "rangoReferencia": {
+        "min": 0.2,
+        "max": 1.2
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 0.7
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 0.9
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 1.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 1.2
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 1.2
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 0.8
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 0.5
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 0.4
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 0.3
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 0.4
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 0.5
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 0.5
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 0.3
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 0.3
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 0.4
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 0.2
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 0.3
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 0.7
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 0.5
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 0.3
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 0.7
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 0.7
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 0.5
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 0.4
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 0.7
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 1.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "id": "calcium",
+      "nombre": "Calcio",
+      "sistema": "electrolitos",
+      "unidad": "mg/dL",
+      "rangoReferencia": {
+        "min": 8.6,
+        "max": 10.3
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 9.7
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 10.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 9.6
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 9.7
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 9.6
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 10.1
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 9.4
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 10.2
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 9.7
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 9.3
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 9.2
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 9.3
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 9.7
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 9.5
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 9.3
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 10.3
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 9.5
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 9.4
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 9.6
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 10.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 9.6
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 10.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 10.1
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 10.2
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 9.8
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 9.8
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 10.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 9.8
+          }
+        ]
+      }
+    },
+    {
+      "id": "carbon_dioxide",
+      "nombre": "CO₂ total",
+      "sistema": "electrolitos",
+      "unidad": "mmol/L",
+      "rangoReferencia": {
+        "min": 20.0,
+        "max": 32.0
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 26.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 26.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 24.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 28.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 27.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 23.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 26.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 24.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 22.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 21.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 25.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 20.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 20.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 21.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 20.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 22.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 24.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 24.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 24.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 24.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 19.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "chloride",
+      "nombre": "Cloruro",
+      "sistema": "electrolitos",
+      "unidad": "mmol/L",
+      "rangoReferencia": {
+        "min": 98.0,
+        "max": 110.0
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 104.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 101.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 102.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 102.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 100.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 101.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 102.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 103.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 103.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 106.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 103.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 104.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 105.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 104.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 102.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 99.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 101.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 103.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 97.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 102.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 101.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 102.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 103.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 103.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 105.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 102.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 103.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 105.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "creatinine",
+      "nombre": "Creatinina",
+      "sistema": "riñón",
+      "unidad": "mg/dL",
+      "rangoReferencia": {
+        "min": 0.6,
+        "max": 1.35
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 1.24
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 1.1
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 1.37
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 1.12
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 1.11
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 1.25
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 1.29
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 0.83
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 0.88
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 0.96
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 0.95
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 1.02
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 0.82
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 1.02
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 1.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 1.03
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 1.08
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 0.89
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 0.94
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 0.89
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 1.1
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 1.14
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 1.08
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 1.13
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 1.15
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 1.08
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 1.11
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 1.31
+          }
+        ]
+      }
+    },
+    {
+      "id": "egfr_african_american",
+      "nombre": "eGFR (ajuste afroamericano)",
+      "sistema": "riñón",
+      "unidad": "mL/min/1.73m²",
+      "rangoReferencia": {
+        "min": 60.0,
+        "max": null
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 85.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 98.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 75.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 96.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 97.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 84.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 80.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 95.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 88.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 79.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 80.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 74.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 96.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 73.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 88.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 85.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 80.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 102.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 95.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 101.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 78.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 92.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 98.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 92.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 90.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 98.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 94.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 77.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "egfr_non_african_american",
+      "nombre": "eGFR",
+      "sistema": "riñón",
+      "unidad": "mL/min/1.73m²",
+      "rangoReferencia": {
+        "min": 60.0,
+        "max": null
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 73.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 85.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 65.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 83.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 84.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 73.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 69.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 82.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 76.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 68.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 69.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 64.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 83.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 63.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 76.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 73.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 69.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 88.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 82.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 87.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 67.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 79.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 85.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 80.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 78.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 84.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 81.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 67.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "globulin",
+      "nombre": "Globulina",
+      "sistema": "proteínas",
+      "unidad": "g/dL",
+      "rangoReferencia": {
+        "min": 1.9,
+        "max": 3.7
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 2.3
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 2.7
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 2.5
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 2.6
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 2.3
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 2.7
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 2.4
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 3.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 3.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 2.7
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 3.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 2.6
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 2.8
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 3.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 2.7
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 3.9
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 2.6
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 2.9
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 2.9
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 2.7
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 2.9
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 2.8
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 2.9
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 2.7
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 2.9
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 2.8
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 2.8
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 2.9
+          }
+        ]
+      }
+    },
+    {
+      "id": "glucose",
+      "nombre": "Glucosa",
+      "sistema": "metabólico",
+      "unidad": "mg/dL",
+      "rangoReferencia": {
+        "min": 65.0,
+        "max": 99.0
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 83.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 80.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 69.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 90.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 84.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 91.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 87.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 69.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 72.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 78.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 83.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 44.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 77.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 84.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 77.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 62.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 75.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 103.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 36.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 80.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 73.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 100.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 83.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 56.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 97.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 43.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 80.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 84.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "potassium",
+      "nombre": "Potasio",
+      "sistema": "electrolitos",
+      "unidad": "mmol/L",
+      "rangoReferencia": {
+        "min": 3.5,
+        "max": 5.3
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 4.6
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 4.2
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 3.9
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 4.4
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 4.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 4.3
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 4.3
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 3.9
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 4.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 3.8
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 3.5
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 4.1
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 3.7
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 4.4
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 3.7
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 3.5
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 3.3
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 3.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 4.4
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 3.7
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 3.8
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 4.2
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 4.2
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 3.7
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 4.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 5.9
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 4.2
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 3.8
+          }
+        ]
+      }
+    },
+    {
+      "id": "total_protein",
+      "nombre": "Proteína total",
+      "sistema": "proteínas",
+      "unidad": "g/dL",
+      "rangoReferencia": {
+        "min": 6.1,
+        "max": 8.1
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 7.3
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 7.7
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 7.4
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 7.5
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 7.2
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 7.8
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 7.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 7.9
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 7.6
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 7.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 7.4
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 6.8
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 7.3
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 7.3
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 7.1
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 8.8
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 6.8
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 7.1
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 7.4
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 7.5
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 7.3
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 7.4
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 7.3
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 7.3
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 7.4
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 7.3
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 7.4
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 7.2
+          }
+        ]
+      }
+    },
+    {
+      "id": "sodium",
+      "nombre": "Sodio",
+      "sistema": "electrolitos",
+      "unidad": "mmol/L",
+      "rangoReferencia": {
+        "min": 135.0,
+        "max": 146.0
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 141.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 139.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 142.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 138.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 138.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 140.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 137.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 142.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 141.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 143.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 137.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 140.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 141.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 138.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 139.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 139.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 138.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 137.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 136.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 138.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 137.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 138.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 140.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 141.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 140.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 139.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 140.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 141.0
+          }
+        ]
+      }
+    },
+    {
+      "id": "urea_nitrogen_bun",
+      "nombre": "Nitrógeno ureico (BUN)",
+      "sistema": "riñón",
+      "unidad": "mg/dL",
+      "rangoReferencia": {
+        "min": 7.0,
+        "max": 25.0
+      },
+      "fuente": "OSDR OSD-575 (rango de referencia incluido en el dataset)",
+      "serie": {
+        "C001": [
+          {
+            "timepoint": "L-92",
+            "valor": 25.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 20.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 18.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 15.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 22.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 28.0
+          }
+        ],
+        "C002": [
+          {
+            "timepoint": "L-92",
+            "valor": 14.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 16.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 17.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 20.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 16.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 18.0
+          }
+        ],
+        "C003": [
+          {
+            "timepoint": "L-92",
+            "valor": 17.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 26.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 21.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 23.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 28.0
+          }
+        ],
+        "C004": [
+          {
+            "timepoint": "L-92",
+            "valor": 22.0
+          },
+          {
+            "timepoint": "L-44",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "L-3",
+            "valor": 19.0
+          },
+          {
+            "timepoint": "R+1",
+            "valor": 26.0
+          },
+          {
+            "timepoint": "R+45",
+            "valor": 21.0
+          },
+          {
+            "timepoint": "R+82",
+            "valor": 16.0
+          },
+          {
+            "timepoint": "R+194",
+            "valor": 27.0
+          }
+        ]
+      }
+    }
+  ]
+}

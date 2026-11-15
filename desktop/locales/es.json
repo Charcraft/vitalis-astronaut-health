@@ -1,0 +1,11 @@
+{
+  "meta": {
+    "codigo": "es",
+    "nombre": "Español",
+    "nativo": "Español",
+    "version": "1.0",
+    "fecha": "2026-11-14",
+    "autores": "Equipo ROCKET · NASA Space Apps Challenge 2026"
+  },
+  "cadenas": {}
+}

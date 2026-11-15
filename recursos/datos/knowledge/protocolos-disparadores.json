@@ -1,0 +1,128 @@
+[
+  {
+    "id": "emergencia-cardiorrespiratoria",
+    "nombre": "Emergencia cardiorrespiratoria",
+    "disparadores": [
+      { "parametroId": "heart_rate", "nivel": "CRITICO", "regla": "CRITICO_ALTO" },
+      { "parametroId": "heart_rate", "nivel": "CRITICO", "regla": "CRITICO_BAJO" },
+      { "parametroId": "spo2", "nivel": "CRITICO", "regla": "CRITICO_BAJO" },
+      { "parametroId": "respiratory_rate", "nivel": "CRITICO", "regla": "CRITICO_ALTO" }
+    ],
+    "pasos": [
+      {
+        "orden": 1,
+        "texto": "Avisa al Oficial Médico de la tripulación (CMO) por el canal de voz. Di el nombre del tripulante y cuál semáforo está en rojo (pulso, oxígeno o respiración)."
+      },
+      {
+        "orden": 2,
+        "texto": "Ayuda al tripulante a quedarse quieto. En microgravedad no se cae, se flota: sujétalo a un riel o arnés para que no se desplace."
+      },
+      {
+        "orden": 3,
+        "texto": "No lo dejes solo. Pregúntale si siente dolor en el pecho, falta de aire o mareo, y qué respuesta te da."
+      },
+      {
+        "orden": 4,
+        "texto": "Si el semáforo de oxígeno (SpO₂) está en rojo, coloca la mascarilla de oxígeno portátil (PBA) sobre su cara y pídele que respire normal."
+      },
+      {
+        "orden": 5,
+        "texto": "Repite la medición con un sensor o cartucho nuevo para descartar un error del equipo antes de decidir."
+      }
+    ],
+    "escalarA": "cmo",
+    "fuente": "Adaptado para tripulación no médica a partir de los riesgos cardiovasculares documentados por NASA HRP. [POR VALIDAR]",
+    "fuenteUrl": "https://www.nasa.gov/hrp/risks/",
+    "validado": false
+  },
+  {
+    "id": "hipercapnia-cabina",
+    "nombre": "CO₂ alto en cabina (hipercapnia)",
+    "disparadores": [
+      { "parametroId": "cabin_co2", "nivel": "CRITICO", "regla": "CRITICO_ALTO" }
+    ],
+    "pasos": [
+      {
+        "orden": 1,
+        "texto": "Lee el nivel de CO₂ que muestra la pantalla y anúncialo al CMO junto con el valor exacto."
+      },
+      {
+        "orden": 2,
+        "texto": "Pide a toda la tripulación que reduzca la actividad física: menos movimiento produce menos CO₂."
+      },
+      {
+        "orden": 3,
+        "texto": "Revisa que el equipo que limpia el aire (scrubber / filtros) esté encendido y sin alarmas."
+      },
+      {
+        "orden": 4,
+        "texto": "Si el nivel no baja, usa la mascarilla de oxígeno portátil (PBA) mientras el aire se recupera."
+      },
+      {
+        "orden": 5,
+        "texto": "Registra la lectura para que la cola la envíe a Tierra cuando regrese la conexión."
+      }
+    ],
+    "escalarA": "cmo",
+    "fuente": "Adaptado a partir del peligro de entornos cerrados/hostiles (CO₂ en cabina) de NASA HRP. [POR VALIDAR]",
+    "fuenteUrl": "https://www.nasa.gov/hrp/hazard-hostile-closed-environments/",
+    "validado": false
+  },
+  {
+    "id": "radiacion-acumulada",
+    "nombre": "Radiación acumulada",
+    "disparadores": [
+      { "parametroId": "radiation_dose", "nivel": "CRITICO", "regla": "CRITICO_ALTO" }
+    ],
+    "pasos": [
+      {
+        "orden": 1,
+        "texto": "Lee la dosis acumulada que muestra la pantalla y anúnciala al CMO."
+      },
+      {
+        "orden": 2,
+        "texto": "Mueve al tripulante a la zona más protegida de la nave (la de mayor blindaje)."
+      },
+      {
+        "orden": 3,
+        "texto": "Reduce el tiempo de exposición y registra la lectura para que viaje a Tierra en la siguiente sincronización."
+      }
+    ],
+    "escalarA": "cirujano-de-vuelo",
+    "fuente": "Adaptado a partir del peligro de radiación espacial de NASA HRP. [POR VALIDAR]",
+    "fuenteUrl": "https://www.nasa.gov/hrp/hazard-space-radiation/",
+    "validado": false
+  },
+  {
+    "id": "alteracion-metabolica",
+    "nombre": "Alteración metabólica (laboratorio)",
+    "disparadores": [
+      { "parametroId": "glucose", "nivel": "ATENCION", "regla": "ATENCION_ALTO" },
+      { "parametroId": "glucose", "nivel": "ATENCION", "regla": "ATENCION_BAJO" },
+      { "parametroId": "potassium", "nivel": "ATENCION", "regla": "ATENCION_BAJO" },
+      { "parametroId": "sodium", "nivel": "ATENCION", "regla": "ATENCION_ALTO" }
+    ],
+    "pasos": [
+      {
+        "orden": 1,
+        "texto": "Repite la medición con un cartucho nuevo para confirmar el valor antes de actuar."
+      },
+      {
+        "orden": 2,
+        "texto": "Mira tu línea base en la pantalla (la app ya la compara). Si el semáforo está en amarillo, es una alerta, no una emergencia."
+      },
+      {
+        "orden": 3,
+        "texto": "Avisa al CMO del valor y de si cambió mucho respecto a tu normal."
+      },
+      {
+        "orden": 4,
+        "texto": "Registra la lectura para que la cola la envíe al cirujano de vuelo cuando haya conexión."
+      }
+    ],
+    "escalarA": "cirujano-de-vuelo",
+    "fuente": "Rangos de referencia de NASA OSDR OSD-575 + adaptación para tripulación no médica. [POR VALIDAR]",
+    "fuenteUrl": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-575",
+    "validado": false
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "nota": "Datos simulados de telemetría continua de traje/cabina. Separados estrictamente de los datos reales de química sanguínea de NASA OSDR OSD-575 conforme a AGENTS.md §5.",
+  "cabina": {
+    "radiacionAcumuladaMsv": 0.4,
+    "presionParcialCo2MmHg": 2.8,
+    "temperaturaCabinaC": 21.2,
+    "retardoTierraTexto": "14m 20s",
+    "retardoTierraSegundos": 860,
+    "fuente": "[SUPUESTO] Telemetría ambiental nominal basada en umbrales NASA-STD-3001 Vol. 2"
+  },
+  "tripulantes": {
+    "C001": {
+      "rol": "Oficial Médico de Tripulación (CMO)",
+      "frecuenciaCardiacaLpm": 72,
+      "baseFrecuenciaCardiacaLpm": 68,
+      "spo2Porcentaje": 98,
+      "baseSpo2Porcentaje": 99,
+      "presionArterial": "118/76",
+      "temperaturaCorporalC": 36.6,
+      "baseTemperaturaC": 36.5,
+      "horasSueno": 6.8,
+      "agudezaVisual": "20/20",
+      "amsler": "Sin distorsión"
+    },
+    "C002": {
+      "rol": "Piloto de Misión",
+      "frecuenciaCardiacaLpm": 66,
+      "baseFrecuenciaCardiacaLpm": 65,
+      "spo2Porcentaje": 99,
+      "baseSpo2Porcentaje": 99,
+      "presionArterial": "114/72",
+      "temperaturaCorporalC": 36.5,
+      "baseTemperaturaC": 36.5,
+      "horasSueno": 7.2,
+      "agudezaVisual": "20/20",
+      "amsler": "Sin distorsión"
+    },
+    "C003": {
+      "rol": "Especialista de Misión",
+      "frecuenciaCardiacaLpm": 70,
+      "baseFrecuenciaCardiacaLpm": 69,
+      "spo2Porcentaje": 98,
+      "baseSpo2Porcentaje": 98,
+      "presionArterial": "116/74",
+      "temperaturaCorporalC": 36.6,
+      "baseTemperaturaC": 36.5,
+      "horasSueno": 6.5,
+      "agudezaVisual": "20/25",
+      "amsler": "Sin distorsión"
+    },
+    "C004": {
+      "rol": "Comandante de Misión",
+      "frecuenciaCardiacaLpm": 68,
+      "baseFrecuenciaCardiacaLpm": 64,
+      "spo2Porcentaje": 98,
+      "baseSpo2Porcentaje": 99,
+      "presionArterial": "120/78",
+      "temperaturaCorporalC": 36.7,
+      "baseTemperaturaC": 36.6,
+      "horasSueno": 6.4,
+      "agudezaVisual": "20/20",
+      "amsler": "Sin distorsión"
+    }
+  }
+}

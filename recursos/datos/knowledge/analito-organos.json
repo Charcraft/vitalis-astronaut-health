@@ -1,0 +1,20 @@
+{
+  "_nota": "[INFERENCIA] Órganos que el visor 3D resalta cuando un analito de OSD-575 sale de su rango de referencia. Es una asociación fisiológica general para orientar la mirada en el modelo, no un diagnóstico ni un umbral clínico: el umbral sigue siendo el rango de referencia del propio dataset. Las claves de órgano son las mallas de recursos/modelos/catalog.json. Revisión clínica pendiente: [POR VALIDAR].",
+  "glucose": ["pancreas", "liver"],
+  "alt": ["liver"],
+  "ast": ["liver"],
+  "total_bilirubin": ["liver", "gallbladder"],
+  "albumin": ["liver"],
+  "total_protein": ["liver"],
+  "globulin": ["liver", "lymph_nodes", "spleen", "bone_marrow"],
+  "alkaline_phosphatase": ["liver", "pelvis", "femur_l", "femur_r", "spine_lumbar"],
+  "calcium": ["parathyroids", "kidney_l", "kidney_r", "pelvis", "spine_lumbar"],
+  "creatinine": ["kidney_l", "kidney_r"],
+  "urea_nitrogen_bun": ["kidney_l", "kidney_r"],
+  "egfr_african_american": ["kidney_l", "kidney_r"],
+  "egfr_non_african_american": ["kidney_l", "kidney_r"],
+  "carbon_dioxide": ["lung_tissue_l", "lung_tissue_r", "kidney_l", "kidney_r"],
+  "chloride": ["kidney_l", "kidney_r"],
+  "potassium": ["heart", "kidney_l", "kidney_r"],
+  "sodium": ["kidney_l", "kidney_r", "adrenal_l", "adrenal_r", "brain"]
+}

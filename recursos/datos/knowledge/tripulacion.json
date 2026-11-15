@@ -1,0 +1,9 @@
+{
+  "nota": "Asignación de sexo biológico por tripulante para la demo. [SUPUESTO]: el dataset OSDR OSD-575 está desidentificado (C001–C004) y no revela el sexo; esta asignación solo sirve para demostrar los rangos de referencia sexo-específicos.",
+  "tripulantes": {
+    "C001": "M",
+    "C002": "F",
+    "C003": "F",
+    "C004": "M"
+  }
+}

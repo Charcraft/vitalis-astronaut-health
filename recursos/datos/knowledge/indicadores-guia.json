@@ -1,0 +1,86 @@
+{
+  "glucose": {
+    "id": "glucose",
+    "tituloDispositivo": "Analizador Clínico Portátil (Cartucho CG8+ / Punción Capilar)",
+    "tiempoEstimadoSegundos": 120,
+    "requiereCompanero": false,
+    "pasos": [
+      {
+        "orden": 1,
+        "titulo": "Sujeción y limpieza en microgravedad",
+        "descripcion": "Fija tu antebrazo al riel Velcro del módulo médico. Limpia la yema del dedo anular con gasa estéril y espera 10 segundos a que el alcohol evapore por completo."
+      },
+      {
+        "orden": 2,
+        "titulo": "Acerca el cartucho a 90° de la esfera de sangre",
+        "descripcion": "En microgravedad la gota no cae: forma una cúpula adherida al dedo por tensión superficial. Toca el borde de la esfera con el canal capilar del cartucho sin sacudir la mano."
+      },
+      {
+        "orden": 3,
+        "titulo": "Lectura y contraste contra tu línea base",
+        "descripcion": "Inserta el cartucho en el lector portátil, registra el valor numérico obtenido y compáralo automáticamente con tu media pre-vuelo (L-92, L-44, L-3)."
+      }
+    ],
+    "modoFallo0G": {
+      "titulo": "Evita burbujas en el canal capilar",
+      "detalle": "Si entra aire al canal capilar por acercar la tira en ángulo oblicuo en 0G, el analizador reporta una lectura falsamente baja (<60 mg/dL) o código de error de llenado."
+    },
+    "fuente": "NASA OSDR OSD-575 (Inspiration4 CMP) · ISS Medical Checklist (JSC-48522)"
+  },
+  "calcium": {
+    "id": "calcium",
+    "tituloDispositivo": "Analizador Clínico Portátil (Cartucho Chem8+)",
+    "tiempoEstimadoSegundos": 150,
+    "requiereCompanero": false,
+    "pasos": [
+      {
+        "orden": 1,
+        "titulo": "Templado del cartucho",
+        "descripcion": "Verifica que el cartucho haya permanecido 5 minutos a temperatura de cabina (18–30 °C) antes de abrir el empaque."
+      },
+      {
+        "orden": 2,
+        "titulo": "Llenado capilar sin burbujas",
+        "descripcion": "Absorbe la esfera capilar hasta la marca de llenado por tensión superficial."
+      },
+      {
+        "orden": 3,
+        "titulo": "Evaluación de resorción ósea",
+        "descripcion": "Registra el valor en mg/dL para vigilar hipercalcemia asociada a desmineralización ósea en microgravedad."
+      }
+    ],
+    "modoFallo0G": {
+      "titulo": "Cierre hermético antes de insertar",
+      "detalle": "No presiones el centro del cartucho al cerrar la tapa; en 0G el desplazamiento del fluido calibrador invalida el control interno."
+    },
+    "fuente": "NASA OSDR OSD-575 · NASA HRP Bone Risk Evidence Report"
+  },
+  "creatinine": {
+    "id": "creatinine",
+    "tituloDispositivo": "Analizador Clínico Portátil (Panel Renal / Chem8+)",
+    "tiempoEstimadoSegundos": 150,
+    "requiereCompanero": false,
+    "pasos": [
+      {
+        "orden": 1,
+        "titulo": "Verificación de hidratación previa",
+        "descripcion": "Registra si hubo actividad extravehicular (EVA) o restricción hídrica en las últimas 6 horas."
+      },
+      {
+        "orden": 2,
+        "titulo": "Toma capilar en 0G",
+        "descripcion": "Extrae la muestra por acción capilar a 90° evitando hemólisis por compresión excesiva del pulpejo."
+      },
+      {
+        "orden": 3,
+        "titulo": "Contraste con línea base renal",
+        "descripcion": "Ingresa el resultado en mg/dL para comparar contra tu media pre-vuelo en OSD-575."
+      }
+    ],
+    "modoFallo0G": {
+      "titulo": "Hemoconcentración inicial en órbita",
+      "detalle": "La redistribución cefálica de fluidos y diuresis inducida por 0G puede elevar transitoriamente creatinina y BUN."
+    },
+    "fuente": "NASA OSDR OSD-575 (Inspiration4 CMP)"
+  }
+}

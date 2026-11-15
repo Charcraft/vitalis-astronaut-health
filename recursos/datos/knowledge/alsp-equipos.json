@@ -1,0 +1,368 @@
+{
+  "meta": {
+    "titulo": "ALSP · Soporte Vital Avanzado",
+    "subtitulo": "Uso de las cuatro herramientas críticas de la Bolsa Roja, paso a paso",
+    "ubicacion": "Bolsa Roja · Rack Médico B2 · Camilla CMRS en Nodo 2",
+    "base": "AHA 2020 ACLS · ISS Medical Checklist (JSC-48522) · Brief AEB 2026",
+    "estadoValidacion": "POR VALIDAR",
+    "advertencia": "Material de entrenamiento y demostración. No es un dispositivo médico: no diagnostica, no prescribe y no sustituye el criterio del Flight Surgeon ni el entrenamiento certificado."
+  },
+  "equipos": [
+    {
+      "id": "dea",
+      "codigo": "ALSP-01",
+      "nombre": "Desfibrilador externo automático (DEA)",
+      "nombreCorto": "DEA",
+      "toolAnimationId": "anim_cpr_cmrs_restraint",
+      "funcion": "Analiza el ritmo y administra una descarga para detener una fibrilación ventricular o taquicardia sin pulso.",
+      "indicacion": "Paro cardiorrespiratorio presenciado, inconsciente y sin respiración normal.",
+      "hardware": "Unidad sellada con protección EMI y contra radiación cósmica, sin riesgo de chispas en cabina. [POR VALIDAR]",
+      "totalPasos": 5,
+      "pasos": [
+        {
+          "id": "dea-seguridad",
+          "orden": 1,
+          "titulo": "Confirma seguridad y ausencia de respuesta",
+          "instruccion": "Verifica O₂ y CO₂ de cabina, sacude los hombros y observa si respira con normalidad durante 10 segundos como máximo.",
+          "nota0G": "Ancla primero tus pies en los rieles del piso: sin punto fijo, cualquier empujón te desplaza y aleja al paciente de la camilla.",
+          "alerta": {
+            "nivel": "seguridad",
+            "texto": "No entres si hay alarma de fuga tóxica o hipoxia ambiental."
+          },
+          "duracionS": 9
+        },
+        {
+          "id": "dea-preparar",
+          "orden": 2,
+          "titulo": "Seca el tórax y adhiere los dos parches",
+          "instruccion": "Seca la piel con gasa. Coloca el parche derecho bajo la clavícula derecha y el izquierdo en la línea axilar media, a la altura del 5.º espacio intercostal. Presiona el gel contra la piel.",
+          "nota0G": "En 0G el sudor no escurre: forma una película conductora sobre el pecho. Si no se seca, la descarga se reparte y puede quemar la piel.",
+          "alerta": {
+            "nivel": "clinico",
+            "texto": "No coloques parches sobre el esternón, un marcapasos visible ni apósitos medicados."
+          },
+          "duracionS": 11
+        },
+        {
+          "id": "dea-analizar",
+          "orden": 3,
+          "titulo": "Conecta el cable y deja que analice",
+          "instruccion": "Conecta el conector de parches al DEA, enciende la unidad y no toques a nadie durante el análisis. El DEA indica si el ritmo es desfibrilable.",
+          "nota0G": "Nadie debe estar en contacto con el paciente ni con la estructura metálica: la corriente busca cualquier camino, incluido un cuerpo flotante.",
+          "alerta": {
+            "nivel": "seguridad",
+            "texto": "Durante el análisis, manos fuera del paciente y de la camilla."
+          },
+          "duracionS": 10
+        },
+        {
+          "id": "dea-descarga",
+          "orden": 4,
+          "titulo": "Despeja la escena y administra la descarga",
+          "instruccion": "Anuncia en voz alta «apártense», confirma visualmente que nadie toca al paciente, la camilla ni las correas, y pulsa el botón de descarga cuando el DEA lo indique.",
+          "nota0G": "Comprueba también que no haya oxígeno libre cerca del tórax: una chispa en atmósfera enriquecida es un riesgo de incendio.",
+          "alerta": {
+            "nivel": "seguridad",
+            "texto": "Descarga solo cuando el DEA lo ordene. Nadie en contacto con el paciente."
+          },
+          "duracionS": 11
+        },
+        {
+          "id": "dea-rcp",
+          "orden": 5,
+          "titulo": "Reanuda RCP 30:2 de inmediato",
+          "instruccion": "Retoma compresiones a 100–120 por minuto y 5–6 cm de profundidad, con retroceso completo. Ventila 2 veces cada 30 compresiones y releva al compresor cada 2 minutos.",
+          "nota0G": "Si estás solo y no hay correas CMRS, usa el método Handstand: pies en la pared superior, manos sobre el esternón, y aprovecha la pared como punto fijo.",
+          "alerta": {
+            "nivel": "clinico",
+            "texto": "No interrumpas las compresiones más de 10 segundos."
+          },
+          "duracionS": 18
+        }
+      ],
+      "referencias": [
+        "AHA 2020 Guidelines for CPR and ECC — ritmo desfibrilable, RCP de alta calidad y DEA.",
+        "ISS Medical Checklist (JSC-48522) — respuesta cardiovascular en microgravedad.",
+        "Protocolo interno ISS-EMERG-CV1 de V.I.T.A.L.I.S."
+      ]
+    },
+    {
+      "id": "iv",
+      "codigo": "ALSP-02",
+      "nombre": "Fluidos intravenosos presurizados",
+      "nombreCorto": "IV presurizada",
+      "toolAnimationId": "anim_capillary_analyzer",
+      "funcion": "Infunde cristaloides y fármacos por vía venosa cuando la gravedad no genera presión hidrostática.",
+      "indicacion": "Hipotensión, pérdida de volumen, necesidad de vía venosa permeable para fármacos de reanimación.",
+      "hardware": "Bolsa de 500 mL dentro de manguito de presión, pera de insuflado, manómetro, línea con filtro de aire y catéter 18 G. [POR VALIDAR]",
+      "totalPasos": 5,
+      "pasos": [
+        {
+          "id": "iv-purgar",
+          "orden": 1,
+          "titulo": "Arma el sistema y purga todo el aire",
+          "instruccion": "Introduce el equipo de infusión en la bolsa, llena medio gotero y purga la línea hasta que no queden burbujas. Cierra la pinza antes de conectar al paciente.",
+          "nota0G": "En 0G las burbujas no suben: invierte el gotero, golpea el barril y purga hacia afuera. Una burbuja retenida puede avanzar hacia el corazón.",
+          "alerta": {
+            "nivel": "seguridad",
+            "texto": "Nunca conectes una línea con aire. Usa el filtro en línea."
+          },
+          "duracionS": 12
+        },
+        {
+          "id": "iv-presurizar",
+          "orden": 2,
+          "titulo": "Presuriza la bolsa a 300 mmHg",
+          "instruccion": "Coloca la bolsa dentro del manguito, ciérralo y bombea la pera hasta que el manómetro marque la presión de infusión indicada. Verifica que el gotero gotee.",
+          "nota0G": "Sin columna de gravedad no hay flujo: la presión externa del manguito reemplaza los 90 cm de altura de un suero terrestre.",
+          "alerta": {
+            "nivel": "equipo",
+            "texto": "No excedas la presión máxima indicada por el fabricante de la bolsa."
+          },
+          "duracionS": 10
+        },
+        {
+          "id": "iv-canalizar",
+          "orden": 3,
+          "titulo": "Canaliza la vena con técnica estéril",
+          "instruccion": "Coloca el torniquete, desinfecta y punciona la vena antecubital con el bisel hacia arriba a 15–30°. Espera el reflujo, avanza el catéter y retira la aguja.",
+          "nota0G": "Fija el brazo contra el soporte antes de puncionar: cualquier deriva del cuerpo mueve la aguja dentro de la vena. Deposita la aguja en el contenedor rígido.",
+          "alerta": {
+            "nivel": "clinico",
+            "texto": "Si no hay reflujo, no avances a ciegas: retira y reevalúa."
+          },
+          "duracionS": 14
+        },
+        {
+          "id": "iv-fijar",
+          "orden": 4,
+          "titulo": "Conecta, fija y regula el goteo",
+          "instruccion": "Conecta la línea al catéter, abre la pinza y ajusta el goteo. Fija el catéter con apósito estéril transparente y cinta, sin tensar la línea.",
+          "nota0G": "Deja una lazada de holgura: si la línea queda tensa, un movimiento flotante arranca el catéter. Comprueba que no haya aire en el tramo final.",
+          "alerta": {
+            "nivel": "equipo",
+            "texto": "La línea debe quedar fija al soporte, no al cuerpo del paciente."
+          },
+          "duracionS": 10
+        },
+        {
+          "id": "iv-vigilar",
+          "orden": 5,
+          "titulo": "Vigila sitio, volumen y respuesta",
+          "instruccion": "Revisa el sitio cada 5 minutos: dolor, edema, palidez o resistencia al flujo obligan a detener la infusión. Registra volumen infundido y signos vitales.",
+          "nota0G": "En 0G el líquido extravasado se acumula y se desplaza por los planos fasciales sin formar una bolsa visible de inmediato.",
+          "alerta": {
+            "nivel": "clinico",
+            "texto": "Detén la infusión ante dolor, edema o falta de retorno."
+          },
+          "duracionS": 11
+        }
+      ],
+      "referencias": [
+        "AHA 2020 ACLS — acceso vascular y fluidos en reanimación.",
+        "ISS Medical Checklist (JSC-48522) — administración de fluidos en microgravedad.",
+        "Práctica estándar de terapia intravenosa; dosis y presión [POR VALIDAR]."
+      ]
+    },
+    {
+      "id": "via-aerea",
+      "codigo": "ALSP-03",
+      "nombre": "Manejo de la vía aérea",
+      "nombreCorto": "Vía aérea",
+      "toolAnimationId": "anim_pba_oxygen_mask",
+      "funcion": "Abre la vía aérea, ventila con bolsa-válvula-mascarilla y asegura la tráquea con un tubo endotraqueal.",
+      "indicacion": "Apnea, obstrucción de la vía aérea, hipoxia refractaria o necesidad de ventilación asistida.",
+      "hardware": "Bolsa-válvula-mascarilla con reservorio, cilindro de O₂ portátil, laringoscopio, tubo endotraqueal 7.5, jeringa de 10 mL, aspirador y capnógrafo. [POR VALIDAR]",
+      "totalPasos": 6,
+      "pasos": [
+        {
+          "id": "av-posicion",
+          "orden": 1,
+          "titulo": "Alinea la cabeza, tracciona la mandíbula y aspira",
+          "instruccion": "Con la cabeza en posición neutra, tracciona la mandíbula hacia arriba y adelante. Aspira secreciones y valora el reflejo. Mide la cánula orofaríngea de la comisura de la boca al ángulo de la mandíbula.",
+          "nota0G": "La lengua no cae por gravedad y los líquidos flotan: la tracción mandibular y la aspiración con trampa son obligatorias antes de ventilar.",
+          "alerta": {
+            "nivel": "clinico",
+            "texto": "No hiperextiendas el cuello si sospechas lesión cervical."
+          },
+          "duracionS": 11
+        },
+        {
+          "id": "av-bvm",
+          "orden": 2,
+          "titulo": "Sella la mascarilla y ventila con bolsa",
+          "instruccion": "Sella boca y nariz con la mascarilla, sujétala con ambas manos y conecta O₂ a 15 L/min. Insufla 500–600 mL en 1 segundo, hasta ver elevación torácica, a 10 ventilaciones por minuto.",
+          "nota0G": "Asegura la mascarilla con la correa elástica: una mano flotante no puede mantener el sellado facial durante todo el traslado.",
+          "alerta": {
+            "nivel": "clinico",
+            "texto": "Si el tórax no se eleva, reevalúa el sellado y la permeabilidad antes de insistir."
+          },
+          "duracionS": 12
+        },
+        {
+          "id": "av-preparar",
+          "orden": 3,
+          "titulo": "Preoxigena y prepara el equipo de intubación",
+          "instruccion": "Preoxigena con O₂ al 100%, prueba el balón del tubo, lubrica la punta, coloca el estilete sin sobresalir y verifica luz y aspiración del laringoscopio.",
+          "nota0G": "Fija cada instrumento con una cinta antes de abrirlo: un tubo o un laringoscopio que se suelta en 0G se convierte en un objeto flotante peligroso.",
+          "alerta": {
+            "nivel": "equipo",
+            "texto": "Estilete nunca más allá de la punta del tubo."
+          },
+          "duracionS": 9
+        },
+        {
+          "id": "av-intubar",
+          "orden": 4,
+          "titulo": "Laringoscopia e intubación",
+          "instruccion": "Introduce la hoja del laringoscopio y eleva la lengua y la epiglotis sin hacer palanca. Visualiza las cuerdas vocales, pasa el tubo y retíralo del estilete cuando supere las cuerdas.",
+          "nota0G": "Un ayudante debe inmovilizar la cabeza y la camilla: el empuje del laringoscopio desplaza al paciente entero en microgravedad.",
+          "alerta": {
+            "nivel": "clinico",
+            "texto": "No fuerces el tubo: si no ves cuerdas, ventila con mascarilla y reintenta."
+          },
+          "duracionS": 14
+        },
+        {
+          "id": "av-confirmar",
+          "orden": 5,
+          "titulo": "Infla el balón y confirma la posición",
+          "instruccion": "Infla el balón con 5–10 mL de aire, conecta la bolsa y confirma con capnografía sostenida, auscultación bilateral y ausencia de ruidos epigástricos. Fija el tubo a 21–23 cm en el incisivo.",
+          "nota0G": "La capnografía es la confirmación definitiva: en cabina no hay radiografía portátil ni auscultación fiable con ruido de ventiladores.",
+          "alerta": {
+            "nivel": "seguridad",
+            "texto": "Sin onda de capnografía sostenida, asume tubo esofágico o desplazado."
+          },
+          "duracionS": 12
+        },
+        {
+          "id": "av-vigilar",
+          "orden": 6,
+          "titulo": "Fija, vigila y prepara el plan de rescate",
+          "instruccion": "Fija el tubo con cinta, marca la profundidad, vigila EtCO₂, SpO₂ y presión del balón. Deja aspirador y material de rescate a la mano para una extubación de emergencia.",
+          "nota0G": "Revisa la fijación cada traslado: las correas y el tubo se desplazan con los cambios de módulo y las maniobras de sujeción.",
+          "alerta": {
+            "nivel": "equipo",
+            "texto": "Registra profundidad y presión del balón en la bitácora."
+          },
+          "duracionS": 10
+        }
+      ],
+      "referencias": [
+        "AHA 2020 ACLS — manejo avanzado de la vía aérea y capnografía.",
+        "ISS Medical Checklist (JSC-48522) — vía aérea y ventilación en 0G.",
+        "NASA-STD-3001 Vol. 2 — soporte vital y atmósfera de cabina."
+      ]
+    },
+    {
+      "id": "farmacos",
+      "codigo": "ALSP-04",
+      "nombre": "Medicamentos de emergencia",
+      "nombreCorto": "Fármacos",
+      "toolAnimationId": "anim_capillary_analyzer",
+      "funcion": "Administra fármacos precargados para paro cardiaco, bradicardia, arritmias y dolor intenso.",
+      "indicacion": "Paro cardiaco, anafilaxia, bradicardia sintomática, arritmia ventricular o analgesia en trauma.",
+      "hardware": "Jeringas precargadas de epinefrina, atropina, lidocaína y analgesia fuerte, agujas estériles, torundas y contenedor de objetos punzantes. [POR VALIDAR]",
+      "totalPasos": 5,
+      "pasos": [
+        {
+          "id": "med-verificar",
+          "orden": 1,
+          "titulo": "Verifica fármaco, dosis y caducidad",
+          "instruccion": "Abre la Bolsa Roja, lee en voz alta el nombre, la concentración y la fecha de caducidad. Confirma la indicación y la vía antes de preparar la jeringa.",
+          "nota0G": "Mantén las jeringas sujetas con una cinta o en la bandeja imantada: las tapas y los capuchones flotan y se pierden.",
+          "alerta": {
+            "nivel": "seguridad",
+            "texto": "Nunca administres un fármaco sin leer la etiqueta en voz alta."
+          },
+          "duracionS": 10
+        },
+        {
+          "id": "med-purga",
+          "orden": 2,
+          "titulo": "Elimina el aire de la jeringa",
+          "instruccion": "Con la aguja hacia arriba, golpea el barril y empuja el émbolo hasta que aparezca una gota en la punta. Ajusta el volumen final antes de administrar.",
+          "nota0G": "Las burbujas no suben solas: golpea e invierte la jeringa hasta que se agrupen en la punta.",
+          "alerta": {
+            "nivel": "seguridad",
+            "texto": "Nunca inyectes una burbuja visible por vía intravenosa."
+          },
+          "duracionS": 8
+        },
+        {
+          "id": "med-via",
+          "orden": 3,
+          "titulo": "Selecciona la vía según la indicación",
+          "instruccion": "En paro cardiaco utiliza la vía IV/IO permeable. En anafilaxia sin vía venosa, administra epinefrina por vía intramuscular en el vasto lateral del muslo.",
+          "nota0G": "La absorción intramuscular puede ser más lenta en microgravedad; si hay vía IV permeable, priorízala. [POR VALIDAR]",
+          "alerta": {
+            "nivel": "clinico",
+            "texto": "Confirma la vía antes de administrar: la extravasación de vasopresores causa necrosis."
+          },
+          "duracionS": 10
+        },
+        {
+          "id": "med-admin",
+          "orden": 4,
+          "titulo": "Administra y registra la hora",
+          "instruccion": "Desinfecta el puerto, conecta y administra la dosis indicada. En paro cardiaco, empuja la epinefrina y continúa con un bolo de 20 mL de solución fisiológica.",
+          "nota0G": "Fija la jeringa a la línea antes de empujar: el retroceso de la maniobra te desplaza y puede desconectar el puerto.",
+          "alerta": {
+            "nivel": "critico",
+            "texto": "Dosis de referencia: epinefrina 1 mg IV/IO cada 3–5 min en paro. [POR VALIDAR]"
+          },
+          "duracionS": 14
+        },
+        {
+          "id": "med-registro",
+          "orden": 5,
+          "titulo": "Registra, programa la siguiente dosis y vigila",
+          "instruccion": "Anota fármaco, dosis, vía y hora UTC. Programa el siguiente intervalo, vigila ritmo y respuesta, y deposita la aguja en el contenedor rígido.",
+          "nota0G": "La bitácora local sobrevive a los cortes de enlace: el Flight Surgeon recibe el paquete al recuperar la ventana de comunicación.",
+          "alerta": {
+            "nivel": "equipo",
+            "texto": "Nunca reencapuchones la aguja: deposítala directamente."
+          },
+          "duracionS": 11
+        }
+      ],
+      "dosis": [
+        {
+          "farmaco": "Epinefrina (paro cardiaco)",
+          "dosis": "1 mg IV/IO",
+          "intervalo": "cada 3–5 min",
+          "nota": "Vía IV/IO. Dosis de referencia ACLS. [POR VALIDAR]"
+        },
+        {
+          "farmaco": "Epinefrina (anafilaxia)",
+          "dosis": "0.3–0.5 mg IM",
+          "intervalo": "repetir a los 5–15 min si persiste",
+          "nota": "Vasto lateral del muslo. [POR VALIDAR]"
+        },
+        {
+          "farmaco": "Atropina",
+          "dosis": "1 mg IV",
+          "intervalo": "cada 3–5 min, máximo 3 mg",
+          "nota": "Bradicardia sintomática. [POR VALIDAR]"
+        },
+        {
+          "farmaco": "Lidocaína",
+          "dosis": "1–1.5 mg/kg IV",
+          "intervalo": "dosis de carga",
+          "nota": "Alternativa en arritmias ventriculares. [POR VALIDAR]"
+        },
+        {
+          "farmaco": "Analgesia fuerte",
+          "dosis": "titulada por peso y respuesta",
+          "intervalo": "según protocolo",
+          "nota": "Vigila depresión respiratoria. [POR VALIDAR]"
+        }
+      ],
+      "referencias": [
+        "AHA 2020 ACLS — epinefrina, atropina y lidocaína en paro y arritmias.",
+        "ISS Medical Checklist (JSC-48522) — botiquín de emergencia de la estación.",
+        "Dosis mostradas como referencia de entrenamiento; requieren validación del Flight Surgeon. [POR VALIDAR]"
+      ]
+    }
+  ]
+}

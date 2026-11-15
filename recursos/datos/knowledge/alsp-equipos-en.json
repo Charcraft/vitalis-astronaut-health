@@ -1,0 +1,232 @@
+{
+  "meta": {
+    "titulo": "ALSP · Advanced Life Support",
+    "subtitulo": "Step-by-step use of the four critical tools in the Red Bag",
+    "ubicacion": "Red Bag · Medical Rack B2 · CMRS stretcher at Node 2",
+    "base": "AHA 2020 ACLS · ISS Medical Checklist (JSC-48522) · AEB 2026 brief",
+    "estadoValidacion": "TO BE VALIDATED",
+    "advertencia": "Training and demonstration material. Not a medical device: it does not diagnose, prescribe, or replace the Flight Surgeon's judgment or certified training."
+  },
+  "equipos": [
+    {
+      "id": "dea",
+      "codigo": "ALSP-01",
+      "nombre": "Automated external defibrillator",
+      "nombreCorto": "DEA",
+      "toolAnimationId": "anim_cpr_cmrs_restraint",
+      "funcion": "Analyzes the rhythm and delivers a shock to stop ventricular fibrillation or pulseless tachycardia.",
+      "indicacion": "Witnessed cardiac arrest, unresponsive and not breathing normally.",
+      "hardware": "Sealed unit with EMI and cosmic-radiation protection, no spark risk in the cabin. [TO BE VALIDATED]",
+      "totalPasos": 5,
+      "pasos": [
+        {
+          "id": "dea-seguridad",
+          "orden": 1,
+          "titulo": "Confirm scene safety and unresponsiveness",
+          "instruccion": "Check cabin O2 and CO2, shake the shoulders, and look for normal breathing for no more than 10 seconds.",
+          "nota0G": "Anchor your feet on the floor rails first: without a fixed point, any push moves you away from the patient.",
+          "duracionS": 9
+        },
+        {
+          "id": "dea-preparar",
+          "orden": 2,
+          "titulo": "Dry the chest and apply both pads",
+          "instruccion": "Dry the skin with gauze. Place the right pad below the right clavicle and the left pad in the mid-axillary line at the 5th intercostal space. Press the gel against the skin.",
+          "nota0G": "In 0G sweat does not run: it forms a conductive film over the chest. If it is not dried, the shock spreads and can burn the skin.",
+          "duracionS": 11
+        },
+        {
+          "id": "dea-analizar",
+          "orden": 3,
+          "titulo": "Connect the cable and let it analyze",
+          "instruccion": "Connect the pads to the AED, power it on, and do not touch anyone during analysis. The AED indicates whether the rhythm is shockable.",
+          "nota0G": "No one may be in contact with the patient or the metal structure: current will take any path, including a floating body.",
+          "duracionS": 10
+        },
+        {
+          "id": "dea-descarga",
+          "orden": 4,
+          "titulo": "Clear the scene and deliver the shock",
+          "instruccion": "Announce “clear”, visually confirm that no one is touching the patient, stretcher, or straps, and press the shock button when the AED prompts.",
+          "nota0G": "Also check that no free oxygen is near the chest: a spark in an enriched atmosphere is a fire risk.",
+          "duracionS": 11
+        },
+        {
+          "id": "dea-rcp",
+          "orden": 5,
+          "titulo": "Resume CPR 30:2 immediately",
+          "instruccion": "Resume compressions at 100–120 per minute and 5–6 cm deep, with full recoil. Give 2 ventilations every 30 compressions and switch compressor every 2 minutes.",
+          "nota0G": "If you are alone and there are no CMRS straps, use the Handstand method: feet on the upper wall, hands on the sternum, using the wall as a fixed point.",
+          "duracionS": 18
+        }
+      ]
+    },
+    {
+      "id": "iv",
+      "codigo": "ALSP-02",
+      "nombre": "Pressurized intravenous fluids",
+      "nombreCorto": "IV",
+      "toolAnimationId": "anim_capillary_analyzer",
+      "funcion": "Infuses crystalloids and drugs intravenously when gravity does not generate hydrostatic pressure.",
+      "indicacion": "Hypotension, volume loss, or need for a patent IV line for resuscitation drugs.",
+      "hardware": "500 mL bag inside a pressure cuff, inflation bulb, gauge, air-filtered line, and 18G catheter. [TO BE VALIDATED]",
+      "totalPasos": 5,
+      "pasos": [
+        {
+          "id": "iv-purgar",
+          "orden": 1,
+          "titulo": "Assemble the set and purge all air",
+          "instruccion": "Insert the infusion set into the bag, fill the drip chamber halfway, and purge the line until no bubbles remain. Close the clamp before connecting.",
+          "nota0G": "In 0G bubbles do not rise: invert the chamber, tap the barrel, and purge outward. A trapped bubble can travel to the heart.",
+          "duracionS": 12
+        },
+        {
+          "id": "iv-presurizar",
+          "orden": 2,
+          "titulo": "Pressurize the bag to 300 mmHg",
+          "instruccion": "Place the bag inside the cuff, close it, and pump the bulb until the gauge reaches the indicated infusion pressure. Verify that the drip chamber is dripping.",
+          "nota0G": "Without a gravity column there is no flow: the cuff's external pressure replaces the 90 cm head of a terrestrial IV.",
+          "duracionS": 10
+        },
+        {
+          "id": "iv-canalizar",
+          "orden": 3,
+          "titulo": "Cannulate the vein with sterile technique",
+          "instruccion": "Apply the tourniquet, disinfect, and puncture the antecubital vein with the bevel up at 15–30°. Wait for flashback, advance the catheter, and withdraw the needle.",
+          "nota0G": "Secure the arm against the support before puncturing: any drift moves the needle inside the vein. Put the needle in the sharps container.",
+          "duracionS": 14
+        },
+        {
+          "id": "iv-fijar",
+          "orden": 4,
+          "titulo": "Connect, secure, and regulate the drip",
+          "instruccion": "Connect the line to the catheter, open the clamp, and set the drip. Secure the catheter with a sterile transparent dressing and tape without tension.",
+          "nota0G": "Leave a slack loop: a taut line will pull the catheter out with any floating movement. Check for air in the final segment.",
+          "duracionS": 10
+        },
+        {
+          "id": "iv-vigilar",
+          "orden": 5,
+          "titulo": "Monitor site, volume, and response",
+          "instruccion": "Check the site every 5 minutes: pain, edema, pallor, or resistance to flow require stopping the infusion. Record volume and vital signs.",
+          "nota0G": "In 0G extravasated fluid accumulates and spreads along fascial planes without forming an immediate visible pocket.",
+          "duracionS": 11
+        }
+      ]
+    },
+    {
+      "id": "via-aerea",
+      "codigo": "ALSP-03",
+      "nombre": "Airway management",
+      "nombreCorto": "Airway",
+      "toolAnimationId": "anim_pba_oxygen_mask",
+      "funcion": "Opens the airway, ventilates with a bag-valve-mask, and secures the trachea with an endotracheal tube.",
+      "indicacion": "Apnea, airway obstruction, refractory hypoxia, or need for assisted ventilation.",
+      "hardware": "Bag-valve-mask with reservoir, portable O2 cylinder, laryngoscope, 7.5 endotracheal tube, 10 mL syringe, suction, and capnograph. [TO BE VALIDATED]",
+      "totalPasos": 6,
+      "pasos": [
+        {
+          "id": "av-posicion",
+          "orden": 1,
+          "titulo": "Align the head, thrust the jaw, and suction",
+          "instruccion": "With the head neutral, pull the jaw up and forward. Suction secretions and assess the reflex. Size the oropharyngeal airway from the mouth corner to the mandible angle.",
+          "nota0G": "The tongue does not fall back and fluids float: jaw thrust and trapped suction are mandatory before ventilating.",
+          "duracionS": 11
+        },
+        {
+          "id": "av-bvm",
+          "orden": 2,
+          "titulo": "Seal the mask and ventilate with the bag",
+          "instruccion": "Seal the mouth and nose with the mask, hold it with both hands, and connect O2 at 15 L/min. Give 500–600 mL over 1 second until chest rise, at 10 ventilations per minute.",
+          "nota0G": "Secure the mask with the elastic strap: a floating hand cannot keep a face seal during transfer.",
+          "duracionS": 12
+        },
+        {
+          "id": "av-preparar",
+          "orden": 3,
+          "titulo": "Preoxygenate and prepare the intubation kit",
+          "instruccion": "Preoxygenate with 100% O2, test the tube cuff, lubricate the tip, place the stylet without protruding, and check the laryngoscope light and suction.",
+          "nota0G": "Tether every instrument before opening it: a loose tube or laryngoscope becomes a dangerous floating object in 0G.",
+          "duracionS": 9
+        },
+        {
+          "id": "av-intubar",
+          "orden": 4,
+          "titulo": "Laryngoscopy and intubation",
+          "instruccion": "Insert the laryngoscope blade and lift the tongue and epiglottis without levering. Visualize the vocal cords, pass the tube, and remove the stylet once it passes the cords.",
+          "nota0G": "An assistant must stabilize the head and stretcher: laryngoscope force moves the whole patient in microgravity.",
+          "duracionS": 14
+        },
+        {
+          "id": "av-confirmar",
+          "orden": 5,
+          "titulo": "Inflate the cuff and confirm position",
+          "instruccion": "Inflate the cuff with 5–10 mL of air, connect the bag, and confirm with sustained capnography, bilateral auscultation, and absent epigastric sounds. Secure the tube at 21–23 cm at the incisors.",
+          "nota0G": "Capnography is the definitive confirmation: there is no portable radiograph or reliable auscultation with ventilator noise.",
+          "duracionS": 12
+        },
+        {
+          "id": "av-vigilar",
+          "orden": 6,
+          "titulo": "Secure, monitor, and prepare rescue",
+          "instruccion": "Tape the tube, mark the depth, monitor EtCO2, SpO2, and cuff pressure. Keep suction and rescue material at hand for emergency extubation.",
+          "nota0G": "Recheck fixation on every transfer: straps and tube shift with module changes and restraint maneuvers.",
+          "duracionS": 10
+        }
+      ]
+    },
+    {
+      "id": "farmacos",
+      "codigo": "ALSP-04",
+      "nombre": "Emergency medications",
+      "nombreCorto": "Meds",
+      "toolAnimationId": "anim_capillary_analyzer",
+      "funcion": "Administers prefilled drugs for cardiac arrest, bradycardia, arrhythmias, and severe pain.",
+      "indicacion": "Cardiac arrest, anaphylaxis, symptomatic bradycardia, ventricular arrhythmia, or trauma analgesia.",
+      "hardware": "Prefilled epinephrine, atropine, lidocaine, and strong analgesia syringes, sterile needles, swabs, and sharps container. [TO BE VALIDATED]",
+      "totalPasos": 5,
+      "pasos": [
+        {
+          "id": "med-verificar",
+          "orden": 1,
+          "titulo": "Verify drug, dose, and expiry",
+          "instruccion": "Open the Red Bag and read the name, concentration, and expiry aloud. Confirm the indication and route before preparing the syringe.",
+          "nota0G": "Keep syringes tethered or in the magnetic tray: caps and covers float away and are lost.",
+          "duracionS": 10
+        },
+        {
+          "id": "med-purga",
+          "orden": 2,
+          "titulo": "Remove air from the syringe",
+          "instruccion": "With the needle up, tap the barrel and push the plunger until a drop appears at the tip. Adjust the final volume before administering.",
+          "nota0G": "Bubbles do not rise on their own: tap and invert the syringe until they gather at the tip.",
+          "duracionS": 8
+        },
+        {
+          "id": "med-via",
+          "orden": 3,
+          "titulo": "Select the route for the indication",
+          "instruccion": "In cardiac arrest, use a patent IV/IO line. In anaphylaxis without IV access, give intramuscular epinephrine in the vastus lateralis.",
+          "nota0G": "Intramuscular absorption may be slower in microgravity; if a patent IV line exists, prioritize it. [TO BE VALIDATED]",
+          "duracionS": 10
+        },
+        {
+          "id": "med-admin",
+          "orden": 4,
+          "titulo": "Administer and record the time",
+          "instruccion": "Disinfect the port, connect, and give the indicated dose. In cardiac arrest, push epinephrine and follow with a 20 mL saline bolus.",
+          "nota0G": "Secure the syringe to the line before pushing: the maneuver's recoil moves you and can disconnect the port.",
+          "duracionS": 14
+        },
+        {
+          "id": "med-registro",
+          "orden": 5,
+          "titulo": "Record, schedule the next dose, and monitor",
+          "instruccion": "Record drug, dose, route, and UTC time. Schedule the next interval, monitor rhythm and response, and place the needle in the sharps container.",
+          "nota0G": "The local log survives link outages: the Flight Surgeon receives the package when the communication window returns.",
+          "duracionS": 11
+        }
+      ]
+    }
+  ]
+}

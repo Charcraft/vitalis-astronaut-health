@@ -1,0 +1,132 @@
+{
+  "protocolos": [
+    {
+      "id": "cardiovascular",
+      "codigo": "ISS-EMERG-CV1",
+      "prioridad": "Prioridad inmediata · Escenario central AEB",
+      "titulo": "Dolor torácico o colapso cardiovascular",
+      "resumen": "Opresión aguda en pecho, síncope, arritmia o paro cardiorrespiratorio en microgravedad.",
+      "equipoUbicacion": "DEA y parches: Rack Médico B2 · Camilla CMRS: Nodo 2 · Kit ALSP: Bolsa Roja",
+      "fuente": "Hinkelbein et al. (AHA / Aerospace Med RCP 0G) & ISS Medical Checklist (JSC-48522)",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Seguridad de cabina y verificación de respuesta",
+          "instruccion": "Descarta fuga tóxica o hipoxia ambiental (verifica O₂/CO₂ de cabina). Evalúa conciencia y respiración en menos de 10 segundos.",
+          "nota0G": "Ancla primero tus propios pies a los rieles del piso antes de manipular al compañero."
+        },
+        {
+          "orden": 2,
+          "titulo": "Fija al paciente antes de iniciar las compresiones",
+          "instruccion": "Sin sujeción a la camilla CMRS o apoyo de pies en la pared opuesta (postura Handstand), la fuerza de compresión desplaza al rescatista por la 3ª Ley de Newton.",
+          "nota0G": "Si estás solo y aún no hay correas CMRS, usa el método Handstand (pies en pared superior, manos en esternón) a 110 compresiones/min y 5–6 cm de profundidad."
+        },
+        {
+          "orden": 3,
+          "titulo": "Colocación del DEA y aislamiento eléctrico en 0G",
+          "instruccion": "Adhiere los parches del DEA (Rack B2) sobre el tórax seco. Antes de pulsar descarga, verifica que ningún tripulante flote en contacto con el paciente o la estructura metálica.",
+          "nota0G": "El sudor en 0G no escurre: forma una película conductora sobre el pecho. Seca completamente con gasa antes de adherir parches."
+        },
+        {
+          "orden": 4,
+          "titulo": "Vía aérea y suministro de O₂ al 100%",
+          "instruccion": "Mantén relación 30:2. Conecta máscara de oxígeno portátil (PBA) y registra signos vitales cada 2 minutos.",
+          "nota0G": "Evita hiperventilación; asegura el sellado facial con correa elástica."
+        },
+        {
+          "orden": 5,
+          "titulo": "Empaquetado SBAR para el Flight Surgeon",
+          "instruccion": "Transmite la bitácora automática con marcas de tiempo UTC, ciclos completados y última bioquímica de línea base (OSD-575) en cuanto se recupere ventana de enlace.",
+          "nota0G": "El paquete queda almacenado en IndexedDB local aunque se corte la energía de consola."
+        }
+      ]
+    },
+    {
+      "id": "respiratorio",
+      "codigo": "ISS-EMERG-OX2",
+      "prioridad": "Ambiental y respiratorio",
+      "titulo": "Hipoxia o exceso de CO₂ (Hipercapnia)",
+      "resumen": "Disnea aguda, SpO₂ menor a 90%, confusión o cefalea por acumulación local de CO₂.",
+      "equipoUbicacion": "Máscara PBA O₂ 100%: Mamparo frontal · Analizador portátil CO₂: Rack Ambiental",
+      "fuente": "ISS Medical Checklist (JSC-48522) & NASA-STD-3001 Vol. 2",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Coloca máscara de O₂ portátil (PBA) de inmediato",
+          "instruccion": "Aísla la vía aérea del aire de cabina antes de buscar la causa del fallo ambiental.",
+          "nota0G": "En 0G no existe convección natural: se forman bolsas estancadas de CO₂ alrededor de la cabeza si falla la ventilación."
+        },
+        {
+          "orden": 2,
+          "titulo": "Traslado a módulo con ventilación forzada",
+          "instruccion": "Desplaza al tripulante hacia el ducto de flujo laminar activo y mide SpO₂ y frecuencia respiratoria.",
+          "nota0G": "Verifica que el pulsoxímetro tenga buen contacto capilar."
+        },
+        {
+          "orden": 3,
+          "titulo": "Evaluación de bicarbonato / CO₂ total en sangre",
+          "instruccion": "Contrasta con el analito carbon_dioxide de tu línea base personal en OSD-575 (rango 20–32 mmol/L).",
+          "nota0G": "Guarda el evento en la cola diferida para control médico en Tierra."
+        }
+      ]
+    },
+    {
+      "id": "neurologico",
+      "codigo": "ISS-EMERG-NV3",
+      "prioridad": "Neurológico / Neuro-ocular",
+      "titulo": "Alteración visual súbita o vértigo severo",
+      "resumen": "Escotoma central, diplopía, cefalea intracraneal intensa o desorientación espacial aguda.",
+      "equipoUbicacion": "Rejilla Amsler y oftalmoscopio: Gaveta Médica M1 · Sujeción blanda: Nodo Hab",
+      "fuente": "NASA HRP SANS Evidence Report & ISS Medical Checklist",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Inmovilización suave y fijación de mirada",
+          "instruccion": "Sujeta al tripulante a un punto fijo para detener el conflicto vestibular-visual en microgravedad.",
+          "nota0G": "Evita giros rápidos de cabeza (aceleración de Coriolis)."
+        },
+        {
+          "orden": 2,
+          "titulo": "Prueba rápida de agudeza y rejilla de Amsler",
+          "instruccion": "Evalúa ojo por ojo a 30 cm de distancia y registra si existe distorsión de líneas centrales o mancha ciega.",
+          "nota0G": "Compara contra la línea base pre-vuelo registrada."
+        },
+        {
+          "orden": 3,
+          "titulo": "Descarte de hipoglucemia concomitante",
+          "instruccion": "Realiza toma capilar de glucosa y electrolitos (sodio/potasio) y empaqueta resultados para el Flight Surgeon.",
+          "nota0G": "En OSD-575 se documentaron glucosas de 36 y 44 mg/dL; siempre descarta causa metabólica."
+        }
+      ]
+    },
+    {
+      "id": "trauma",
+      "codigo": "ISS-EMERG-TR4",
+      "prioridad": "Trauma y actividad extravehicular",
+      "titulo": "Hemorragia o lesión tras EVA",
+      "resumen": "Control de sangrado en 0G, fijación en camilla CMRS y vigilancia de rabdomiólisis o deshidratación.",
+      "equipoUbicacion": "Kit de Trauma y vendaje compresivo: Bolsa Roja · Camilla CMRS: Nodo 2",
+      "fuente": "ISS Medical Checklist (JSC-48522)",
+      "pasos": [
+        {
+          "orden": 1,
+          "titulo": "Presión directa con anclaje corporal",
+          "instruccion": "Aplica gasa hemostática y vendaje elástico compresivo manteniendo tus pies anclados al riel.",
+          "nota0G": "La sangre venosa en 0G forma domos adherentes; usa aspiración o gasa absorbente para evitar gotas flotantes en cabina."
+        },
+        {
+          "orden": 2,
+          "titulo": "Inmovilización en camilla CMRS",
+          "instruccion": "Asegura las correas pélvica y torácica y vigila frecuencia cardíaca y presión arterial cada 5 minutos.",
+          "nota0G": "La pérdida de volumen intravascular se tolera peor tras adaptación a microgravedad."
+        },
+        {
+          "orden": 3,
+          "titulo": "Control bioquímico (AST, ALT, Creatinina, Potasio)",
+          "instruccion": "Registra los analitos del panel OSD-575 y empaqueta la bitácora para Tierra.",
+          "nota0G": "Sincronización diferida automática habilitada."
+        }
+      ]
+    }
+  ]
+}

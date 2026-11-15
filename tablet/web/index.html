@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d10">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/icon.png">
+<title>V.I.T.A.L.I.S. Tablet</title>
+<style>
+  :root { --bg:#0b0d10; --fg:#e8ecf1; --mut:#8b95a3; --ok:#3ddc97; --warn:#ffb84d; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; height:100%; background:var(--bg); overflow:hidden; overscroll-behavior:none;
+    touch-action:none; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
+    font-family:"Segoe UI",Roboto,system-ui,sans-serif; color:var(--fg); }
+  #c { position:fixed; left:0; top:0; background:#000; touch-action:none; display:block;
+    image-rendering:auto; }
+  #cubierta { position:fixed; inset:0; z-index:20; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; gap:18px; background:var(--bg); text-align:center; padding:24px; }
+  #cubierta.oculta { display:none; }
+  #cubierta h1 { margin:0; font-size:34px; letter-spacing:.14em; font-weight:600; }
+  #cubierta p { margin:0; color:var(--mut); font-size:18px; max-width:560px; line-height:1.4; }
+  #cubierta .boton { margin-top:10px; padding:18px 44px; font-size:22px; border-radius:16px;
+    border:1px solid #2a313b; background:#151a21; color:var(--fg); min-height:64px; }
+  #estado { position:fixed; left:50%; top:14px; transform:translateX(-50%); z-index:15;
+    padding:10px 18px; border-radius:999px; background:#1b2129; border:1px solid #2a313b;
+    font-size:16px; display:none; }
+  #estado.vis { display:block; }
+  #teclado { position:fixed; right:16px; bottom:16px; z-index:12; width:64px; height:64px;
+    border-radius:18px; border:1px solid #2a313b; background:#151a21; color:var(--fg);
+    font-size:28px; display:none; }
+  #ime, #imeMulti { position:fixed; z-index:5; opacity:.01; border:0; outline:0; padding:0; margin:0;
+    background:transparent; color:transparent; caret-color:transparent; font-size:16px;
+    user-select:text; -webkit-user-select:text; resize:none; overflow:hidden; display:none; }
+  #dbg { position:fixed; left:8px; top:8px; z-index:30; font:12px monospace; color:#9fe; display:none;
+    background:#0008; padding:4px 6px; border-radius:6px; }
+</style>
+</head>
+<body>
+<canvas id="c" width="2000" height="1200"></canvas>
+<input id="ime" type="text" autocomplete="off" autocorrect="off" autocapitalize="sentences" spellcheck="false" enterkeyhint="send">
+<textarea id="imeMulti" autocomplete="off" autocorrect="off" spellcheck="false" enterkeyhint="enter"></textarea>
+<button id="teclado" aria-label="Teclado">⌨</button>
+<div id="estado"></div>
+<div id="dbg"></div>
+<div id="cubierta">
+  <h1>V.I.T.A.L.I.S.</h1>
+  <p id="cubiertaTexto">Pantalla táctil remota. Toca para iniciar en pantalla completa con sonido y micrófono.</p>
+  <button class="boton" id="iniciar">Iniciar</button>
+</div>
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const canvas = $("c"), ctx = canvas.getContext("2d", { alpha: false, desynchronized: true });
+const cubierta = $("cubierta"), estado = $("estado"), dbg = $("dbg");
+const DEBUG = /debug/.test(location.search);
+let ws = null, iniciado = false, conectado = false, reintento = null;
+let cadena = Promise.resolve();
+let nTramas = 0, t0 = performance.now(), msDecod = 0;
+
+/* ---------- ajuste del lienzo a la pantalla ---------- */
+function ajustar() {
+  const cw = canvas.width, ch = canvas.height;
+  const vw = window.innerWidth, vh = window.innerHeight;
+  const s = Math.min(vw / cw, vh / ch);
+  const w = Math.round(cw * s), h = Math.round(ch * s);
+  canvas.style.width = w + "px"; canvas.style.height = h + "px";
+  canvas.style.left = Math.round((vw - w) / 2) + "px"; canvas.style.top = Math.round((vh - h) / 2) + "px";
+}
+window.addEventListener("resize", ajustar);
+if (window.visualViewport) {
+  window.visualViewport.addEventListener("resize", () => { comprobarTeclado(); acomodarTeclado(); });
+  window.visualViewport.addEventListener("scroll", acomodarTeclado);
+}
+
+function mostrarEstado(txt) { estado.textContent = txt || ""; estado.classList.toggle("vis", !!txt); }
+function enviar(obj) { if (ws && ws.readyState === 1) ws.send(JSON.stringify(obj)); }
+
+/* ---------- conexión ---------- */
+function conectar() {
+  clearTimeout(reintento);
+  const url = (location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/ws?v=2";
+  ws = new WebSocket(url);
+  ws.binaryType = "arraybuffer";
+  ws.onopen = () => {
+    conectado = true; mostrarEstado("");
+    enviarHello();
+    enviar({ t: "vis", hidden: document.hidden });
+  };
+  ws.onclose = (ev) => {
+    conectado = false; detenerMic(); detenerTodoAudio();
+    if (ev && ev.code === 4001) { location.reload(); return; }  // página antigua en caché
+    if (ev && ev.code === 4000) {  // otra pestaña tomó la sesión: no se disputa
+      iniciado = false; $("cubiertaTexto").textContent = "La pantalla se abrió en otra pestaña. Toca para retomarla aquí.";
+      $("iniciar").textContent = "Retomar"; cubierta.classList.remove("oculta"); mostrarEstado("");
+      return;
+    }
+    mostrarEstado("Reconectando con la PC…");
+    reintento = setTimeout(conectar, 1000);
+  };
+  ws.onerror = () => { try { ws.close(); } catch (e) {} };
+  ws.onmessage = (ev) => {
+    if (typeof ev.data === "string") return alMensaje(JSON.parse(ev.data));
+    const dv = new DataView(ev.data), tipo = dv.getUint8(0);
+    if (tipo === 1) return alVideo(ev.data, dv);
+    if (tipo === 2) return alAudio(ev.data, dv);
+    if (tipo === 3) return pararAudio(dv.getUint16(1, true));
+  };
+}
+
+function enviarHello() {
+  // Tamaño CSS real de la ventana: con la pantalla completa en horizontal la app se
+  // dimensiona exactamente a ese espacio (sin remuestrear ni dejar bordes).
+  const cw = window.innerWidth, ch = window.innerHeight;
+  enviar({ t: "hello", pw: Math.round(Math.max(screen.width, screen.height) * devicePixelRatio),
+           ph: Math.round(Math.min(screen.width, screen.height) * devicePixelRatio), dpr: devicePixelRatio,
+           cw: cw, ch: ch, ua: navigator.userAgent });
+}
+let tHello = null;
+function reenviarHello() { clearTimeout(tHello); tHello = setTimeout(() => { if (iniciado && innerWidth > innerHeight) enviarHello(); }, 350); }
+window.addEventListener("orientationchange", reenviarHello);
+
+function alMensaje(m) {
+  switch (m.t) {
+    case "init":
+      if (canvas.width !== m.w || canvas.height !== m.h) { canvas.width = m.w; canvas.height = m.h; }
+      ajustar(); break;
+    case "ime": alIme(m); break;
+    case "imetext": alImeTexto(m.text); break;
+    case "mic": m.on ? iniciarMic(m.sr || 16000) : detenerMic(); break;
+  }
+}
+
+/* ---------- vídeo ---------- */
+function alVideo(buf, dv) {
+  const x = dv.getUint16(1, true), y = dv.getUint16(3, true), w = dv.getUint16(5, true), h = dv.getUint16(7, true);
+  const seq = dv.getUint32(9, true);
+  const t = performance.now();
+  const p = createImageBitmap(new Blob([new Uint8Array(buf, 13)], { type: "image/jpeg" }));
+  cadena = cadena.then(() => p).then((bmp) => {
+    ctx.drawImage(bmp, x, y, w, h); bmp.close();
+    enviar({ t: "ack", n: seq });
+    nTramas++; msDecod = 0.8 * msDecod + 0.2 * (performance.now() - t);
+    if (DEBUG && performance.now() - t0 > 1000) {
+      dbg.style.display = "block";
+      dbg.textContent = nTramas + " fps · decod " + msDecod.toFixed(0) + " ms · " + (buf.byteLength / 1024).toFixed(0) + " KB";
+      nTramas = 0; t0 = performance.now();
+    }
+  }).catch(() => { enviar({ t: "ack", n: seq }); enviar({ t: "resync" }); });
+}
+
+/* ---------- touch ---------- */
+const pend = new Map(); let rafPend = false;
+function norm(e) {
+  const r = canvas.getBoundingClientRect();
+  return { x: Math.min(1, Math.max(0, (e.clientX - r.left) / r.width)), y: Math.min(1, Math.max(0, (e.clientY - r.top) / r.height)) };
+}
+function volcarMoves() {
+  rafPend = false;
+  for (const [id, m] of pend) enviar(m);
+  pend.clear();
+}
+canvas.addEventListener("pointerdown", (e) => {
+  if (!iniciado) return;
+  e.preventDefault(); canvas.setPointerCapture(e.pointerId);
+  volcarMoves();
+  enviar({ t: "ptr", ph: "down", id: e.pointerId, ...norm(e) });
+});
+canvas.addEventListener("pointermove", (e) => {
+  if (!iniciado || !canvas.hasPointerCapture(e.pointerId)) return;
+  e.preventDefault();
+  pend.set(e.pointerId, { t: "ptr", ph: "move", id: e.pointerId, ...norm(e) });
+  if (!rafPend) { rafPend = true; requestAnimationFrame(volcarMoves); }
+});
+function fin(e, fase) {
+  if (!iniciado) return;
+  e.preventDefault(); volcarMoves();
+  enviar({ t: "ptr", ph: fase, id: e.pointerId, ...norm(e) });
+}
+canvas.addEventListener("pointerup", (e) => fin(e, "up"));
+canvas.addEventListener("pointercancel", (e) => fin(e, "cancel"));
+for (const ev of ["contextmenu", "gesturestart", "dblclick", "selectstart", "dragstart"])
+  document.addEventListener(ev, (e) => e.preventDefault());
+canvas.addEventListener("wheel", (e) => e.preventDefault(), { passive: false });
+
+/* ---------- teclado táctil (campos de texto de Qt) ---------- */
+const imeS = $("ime"), imeM = $("imeMulti"), btnTeclado = $("teclado");
+let imeActivo = null, imeBase = "";
+function cuerpoIme() { return imeActivo ? (imeActivo.multi ? imeM : imeS) : null; }
+function alIme(m) {
+  imeS.style.display = imeM.style.display = "none";
+  if (!m.on) { imeActivo = null; document.activeElement && document.activeElement.blur && document.activeElement.blur();
+    btnTeclado.style.display = "none"; canvas.style.transform = ""; return; }
+  imeActivo = m;
+  const el = cuerpoIme(), r = canvas.getBoundingClientRect();
+  el.style.display = "block";
+  el.style.left = (r.left + m.r[0] * r.width) + "px"; el.style.top = (r.top + m.r[1] * r.height) + "px";
+  el.style.width = Math.max(40, m.r[2] * r.width) + "px"; el.style.height = Math.max(32, m.r[3] * r.height) + "px";
+  el.type !== undefined && (el.type = m.pass ? "password" : "text");
+  if (!m.multi) el.inputMode = m.num ? "decimal" : "text";
+  el.value = m.text; imeBase = m.text;
+  el.focus({ preventScroll: false });
+  try { el.setSelectionRange(el.value.length, el.value.length); } catch (e) {}
+  setTimeout(() => { comprobarTeclado(); acomodarTeclado(); }, 350);
+}
+// Con el teclado abierto se desplaza el lienzo para que el campo en edición quede visible encima.
+function acomodarTeclado() {
+  const vv = window.visualViewport;
+  const abierto = vv && vv.height < window.innerHeight * 0.85;
+  if (!imeActivo || !abierto) { canvas.style.transform = ""; posicionarIme(0); return; }
+  const base = canvas.offsetTop, alto = canvas.offsetHeight;
+  const bajo = base + (imeActivo.r[1] + imeActivo.r[3]) * alto + 16;      // borde inferior del campo
+  // Chrome puede desplazar el viewport visual por su cuenta (offsetTop): se descuenta.
+  // El viewport visual no descuenta la barra de navegación de Android que queda bajo el teclado (~48 px CSS).
+  const dy = Math.max(0, bajo + 56 - vv.offsetTop - vv.height);
+  canvas.style.transform = dy > 0 ? "translateY(" + (-dy) + "px)" : "";
+  posicionarIme(dy);
+}
+function posicionarIme(dy) {
+  const el = cuerpoIme(); if (!el || !imeActivo) return;
+  el.style.top = (canvas.offsetTop + imeActivo.r[1] * canvas.offsetHeight - dy) + "px";
+}
+function alImeTexto(t) {
+  const el = cuerpoIme();
+  if (el && el.value !== t) { el.value = t; imeBase = t; }
+}
+function comprobarTeclado() {
+  const abierto = window.visualViewport && window.visualViewport.height < window.innerHeight * 0.8;
+  btnTeclado.style.display = (imeActivo && !abierto) ? "block" : "none";
+}
+btnTeclado.addEventListener("click", () => { const el = cuerpoIme(); if (el) { el.focus(); btnTeclado.style.display = "none"; } });
+function alEscribir(ev) {
+  const el = ev.target, nuevo = el.value, viejo = imeBase;
+  let p = 0; const max = Math.min(viejo.length, nuevo.length);
+  while (p < max && viejo.charCodeAt(p) === nuevo.charCodeAt(p)) p++;
+  let s = 0;
+  while (s < max - p && viejo.charCodeAt(viejo.length - 1 - s) === nuevo.charCodeAt(nuevo.length - 1 - s)) s++;
+  enviar({ t: "text", s: p, d: viejo.length - p - s, i: nuevo.slice(p, nuevo.length - s) });
+  imeBase = nuevo;
+}
+imeS.addEventListener("input", alEscribir); imeM.addEventListener("input", alEscribir);
+imeS.addEventListener("keydown", (e) => { if (e.key === "Enter") { e.preventDefault(); enviar({ t: "key", k: "Enter" }); } });
+for (const el of [imeS, imeM]) el.addEventListener("blur", () => { setTimeout(() => { comprobarTeclado(); acomodarTeclado(); }, 100); });
+
+/* ---------- audio de salida ---------- */
+let ac = null; const flujos = new Map();
+function alAudio(buf, dv) {
+  if (!ac) return;
+  const id = dv.getUint16(1, true), sr = dv.getUint32(3, true), ch = dv.getUint8(7);
+  const pcm = new Int16Array(buf.slice(8));
+  const frames = Math.floor(pcm.length / ch);
+  if (!frames) return;
+  const ab = ac.createBuffer(ch, frames, sr);
+  for (let c = 0; c < ch; c++) { const d = ab.getChannelData(c); for (let i = 0; i < frames; i++) d[i] = pcm[i * ch + c] / 32768; }
+  const src = ac.createBufferSource(); src.buffer = ab; src.connect(ac.destination);
+  let f = flujos.get(id); if (!f) { f = { next: 0, fuentes: new Set() }; flujos.set(id, f); }
+  const ahora = ac.currentTime;
+  if (f.next < ahora + 0.03) f.next = ahora + 0.10;
+  src.start(f.next); f.next += frames / sr;
+  f.fuentes.add(src); src.onended = () => f.fuentes.delete(src);
+}
+function pararAudio(id) {
+  const f = flujos.get(id); if (!f) return;
+  for (const s of f.fuentes) { try { s.stop(); } catch (e) {} }
+  f.fuentes.clear(); f.next = 0;
+}
+function detenerTodoAudio() { for (const id of flujos.keys()) pararAudio(id); }
+
+/* ---------- micrófono ---------- */
+let micCtx = null, micStream = null, micNodo = null;
+async function iniciarMic(sr) {
+  if (micCtx) return;
+  try {
+    micStream = await navigator.mediaDevices.getUserMedia({ audio: { channelCount: 1, echoCancellation: true, noiseSuppression: true } });
+    micCtx = new (window.AudioContext || window.webkitAudioContext)({ sampleRate: sr });
+    const codigo = `class P extends AudioWorkletProcessor{constructor(){super();this.b=new Float32Array(1600);this.n=0}
+      process(i){const x=i[0][0];if(!x)return true;for(let k=0;k<x.length;k++){this.b[this.n++]=x[k];
+      if(this.n===this.b.length){const o=new Int16Array(this.n);for(let j=0;j<this.n;j++){const v=Math.max(-1,Math.min(1,this.b[j]));o[j]=v*32767}
+      this.port.postMessage(o.buffer,[o.buffer]);this.n=0}}return true}}registerProcessor('mic',P)`;
+    const url = URL.createObjectURL(new Blob([codigo], { type: "application/javascript" }));
+    await micCtx.audioWorklet.addModule(url);
+    const fuente = micCtx.createMediaStreamSource(micStream);
+    micNodo = new AudioWorkletNode(micCtx, "mic");
+    micNodo.port.onmessage = (e) => {
+      if (!ws || ws.readyState !== 1) return;
+      const cuerpo = new Uint8Array(e.data), msg = new Uint8Array(cuerpo.length + 1);
+      msg[0] = 0x10; msg.set(cuerpo, 1); ws.send(msg);
+    };
+    fuente.connect(micNodo);
+  } catch (err) {
+    enviar({ t: "micerr", e: String(err && err.name || err) });
+    detenerMic();
+  }
+}
+function detenerMic() {
+  try { micNodo && micNodo.disconnect(); } catch (e) {}
+  try { micStream && micStream.getTracks().forEach((t) => t.stop()); } catch (e) {}
+  try { micCtx && micCtx.close(); } catch (e) {}
+  micCtx = micStream = micNodo = null;
+}
+
+/* ---------- inicio: pantalla completa, sonido, pantalla encendida ---------- */
+let wake = null;
+async function pedirWake() { try { if (navigator.wakeLock) wake = await navigator.wakeLock.request("screen"); } catch (e) {} }
+document.addEventListener("visibilitychange", () => {
+  enviar({ t: "vis", hidden: document.hidden });
+  if (!document.hidden && iniciado) pedirWake();
+  if (!document.hidden && ac && ac.state === "suspended") ac.resume();
+});
+async function iniciar() {
+  if (!conectado) conectar();
+  try { await document.documentElement.requestFullscreen({ navigationUI: "hide" }); } catch (e) {}
+  try { if (screen.orientation && screen.orientation.lock) await screen.orientation.lock("landscape"); } catch (e) {}
+  try { ac = ac || new (window.AudioContext || window.webkitAudioContext)({ latencyHint: "interactive" }); await ac.resume(); } catch (e) {}
+  pedirWake();
+  iniciado = true; cubierta.classList.add("oculta"); ajustar();
+  setTimeout(enviarHello, 400);
+  enviar({ t: "resync" });
+}
+$("iniciar").addEventListener("click", iniciar);
+document.addEventListener("fullscreenchange", () => { setTimeout(ajustar, 150); reenviarHello(); });
+window.addEventListener("resize", reenviarHello);
+ajustar(); conectar();
+</script>
+</body>
+</html>

@@ -1,0 +1,1381 @@
+{
+ "fuente": "recursos/modelos/anatomy-male.glb (BodyParts3D, CC BY 4.0) + recursos/modelos/anatomy-extras.glb",
+ "mallas": [
+  {
+   "nombre": "aorta",
+   "tejido": "vessels",
+   "vertices": 729,
+   "triangulos": 1418,
+   "offsetPos": 0,
+   "offsetIdx": 8748
+  },
+  {
+   "nombre": "chest_muscles_l",
+   "tejido": "muscles",
+   "vertices": 486,
+   "triangulos": 958,
+   "offsetPos": 25764,
+   "offsetIdx": 31596
+  },
+  {
+   "nombre": "chest_muscles_r",
+   "tejido": "muscles",
+   "vertices": 503,
+   "triangulos": 990,
+   "offsetPos": 43092,
+   "offsetIdx": 49128
+  },
+  {
+   "nombre": "foot_muscles_l",
+   "tejido": "muscles",
+   "vertices": 877,
+   "triangulos": 1676,
+   "offsetPos": 61008,
+   "offsetIdx": 71532
+  },
+  {
+   "nombre": "hand_muscles_l",
+   "tejido": "muscles",
+   "vertices": 637,
+   "triangulos": 1192,
+   "offsetPos": 91644,
+   "offsetIdx": 99288
+  },
+  {
+   "nombre": "foot_muscles_r",
+   "tejido": "muscles",
+   "vertices": 882,
+   "triangulos": 1690,
+   "offsetPos": 113592,
+   "offsetIdx": 124176
+  },
+  {
+   "nombre": "hand_muscles_r",
+   "tejido": "muscles",
+   "vertices": 638,
+   "triangulos": 1190,
+   "offsetPos": 144456,
+   "offsetIdx": 152112
+  },
+  {
+   "nombre": "veins_thorax",
+   "tejido": "vessels",
+   "vertices": 8278,
+   "triangulos": 16276,
+   "offsetPos": 166392,
+   "offsetIdx": 265728
+  },
+  {
+   "nombre": "arteries_thorax",
+   "tejido": "vessels",
+   "vertices": 8348,
+   "triangulos": 16394,
+   "offsetPos": 461040,
+   "offsetIdx": 561216
+  },
+  {
+   "nombre": "deltoid_l",
+   "tejido": "muscles",
+   "vertices": 244,
+   "triangulos": 488,
+   "offsetPos": 757944,
+   "offsetIdx": 760872
+  },
+  {
+   "nombre": "deltoid_r",
+   "tejido": "muscles",
+   "vertices": 255,
+   "triangulos": 516,
+   "offsetPos": 766728,
+   "offsetIdx": 769788
+  },
+  {
+   "nombre": "coronary_arteries",
+   "tejido": "vessels",
+   "vertices": 1905,
+   "triangulos": 3522,
+   "offsetPos": 775980,
+   "offsetIdx": 798840
+  },
+  {
+   "nombre": "arteries_pelvis",
+   "tejido": "vessels",
+   "vertices": 3439,
+   "triangulos": 6788,
+   "offsetPos": 841104,
+   "offsetIdx": 882372
+  },
+  {
+   "nombre": "brain",
+   "tejido": "organs",
+   "vertices": 22842,
+   "triangulos": 45286,
+   "offsetPos": 963828,
+   "offsetIdx": 1237932
+  },
+  {
+   "nombre": "arteries_head",
+   "tejido": "vessels",
+   "vertices": 5828,
+   "triangulos": 11036,
+   "offsetPos": 1781364,
+   "offsetIdx": 1851300
+  },
+  {
+   "nombre": "heart",
+   "tejido": "organs",
+   "vertices": 5803,
+   "triangulos": 11712,
+   "offsetPos": 1983732,
+   "offsetIdx": 2053368
+  },
+  {
+   "nombre": "arteries_abdomen",
+   "tejido": "vessels",
+   "vertices": 4483,
+   "triangulos": 11158,
+   "offsetPos": 2193912,
+   "offsetIdx": 2247708
+  },
+  {
+   "nombre": "liver",
+   "tejido": "organs",
+   "vertices": 8701,
+   "triangulos": 17286,
+   "offsetPos": 2381604,
+   "offsetIdx": 2486016
+  },
+  {
+   "nombre": "colon",
+   "tejido": "organs",
+   "vertices": 1015,
+   "triangulos": 2014,
+   "offsetPos": 2693448,
+   "offsetIdx": 2705628
+  },
+  {
+   "nombre": "trapezius_l",
+   "tejido": "muscles",
+   "vertices": 694,
+   "triangulos": 1376,
+   "offsetPos": 2729796,
+   "offsetIdx": 2738124
+  },
+  {
+   "nombre": "trapezius_r",
+   "tejido": "muscles",
+   "vertices": 689,
+   "triangulos": 1366,
+   "offsetPos": 2754636,
+   "offsetIdx": 2762904
+  },
+  {
+   "nombre": "spine_cervical",
+   "tejido": "skeleton",
+   "vertices": 2009,
+   "triangulos": 4050,
+   "offsetPos": 2779296,
+   "offsetIdx": 2803404
+  },
+  {
+   "nombre": "sternum",
+   "tejido": "skeleton",
+   "vertices": 581,
+   "triangulos": 1150,
+   "offsetPos": 2852004,
+   "offsetIdx": 2858976
+  },
+  {
+   "nombre": "cerebellum",
+   "tejido": "organs",
+   "vertices": 1567,
+   "triangulos": 3126,
+   "offsetPos": 2872776,
+   "offsetIdx": 2891580
+  },
+  {
+   "nombre": "veins_arm_l",
+   "tejido": "vessels",
+   "vertices": 4314,
+   "triangulos": 8514,
+   "offsetPos": 2929092,
+   "offsetIdx": 2980860
+  },
+  {
+   "nombre": "veins_arm_r",
+   "tejido": "vessels",
+   "vertices": 4345,
+   "triangulos": 8574,
+   "offsetPos": 3083028,
+   "offsetIdx": 3135168
+  },
+  {
+   "nombre": "cranial_nerves",
+   "tejido": "nerves",
+   "vertices": 4053,
+   "triangulos": 7954,
+   "offsetPos": 3238056,
+   "offsetIdx": 3286692
+  },
+  {
+   "nombre": "reproductive",
+   "tejido": "organs",
+   "vertices": 1314,
+   "triangulos": 1024,
+   "offsetPos": 3382140,
+   "offsetIdx": 3397908
+  },
+  {
+   "nombre": "veins_leg_r",
+   "tejido": "vessels",
+   "vertices": 7957,
+   "triangulos": 15692,
+   "offsetPos": 3410196,
+   "offsetIdx": 3505680
+  },
+  {
+   "nombre": "arteries_leg_l",
+   "tejido": "vessels",
+   "vertices": 6133,
+   "triangulos": 12132,
+   "offsetPos": 3693984,
+   "offsetIdx": 3767580
+  },
+  {
+   "nombre": "arteries_leg_r",
+   "tejido": "vessels",
+   "vertices": 6515,
+   "triangulos": 12882,
+   "offsetPos": 3913164,
+   "offsetIdx": 3991344
+  },
+  {
+   "nombre": "diaphragm",
+   "tejido": "muscles",
+   "vertices": 1659,
+   "triangulos": 3322,
+   "offsetPos": 4145928,
+   "offsetIdx": 4165836
+  },
+  {
+   "nombre": "small_intestine",
+   "tejido": "organs",
+   "vertices": 1235,
+   "triangulos": 2246,
+   "offsetPos": 4205700,
+   "offsetIdx": 4220520
+  },
+  {
+   "nombre": "foot_l",
+   "tejido": "skeleton",
+   "vertices": 1604,
+   "triangulos": 3096,
+   "offsetPos": 4247472,
+   "offsetIdx": 4266720
+  },
+  {
+   "nombre": "hand_l",
+   "tejido": "skeleton",
+   "vertices": 1092,
+   "triangulos": 2076,
+   "offsetPos": 4303872,
+   "offsetIdx": 4316976
+  },
+  {
+   "nombre": "foot_r",
+   "tejido": "skeleton",
+   "vertices": 1542,
+   "triangulos": 2972,
+   "offsetPos": 4341888,
+   "offsetIdx": 4360392
+  },
+  {
+   "nombre": "hand_r",
+   "tejido": "skeleton",
+   "vertices": 1028,
+   "triangulos": 1948,
+   "offsetPos": 4396056,
+   "offsetIdx": 4408392
+  },
+  {
+   "nombre": "arteries_arm_l",
+   "tejido": "vessels",
+   "vertices": 3850,
+   "triangulos": 7520,
+   "offsetPos": 4431768,
+   "offsetIdx": 4477968
+  },
+  {
+   "nombre": "arteries_arm_r",
+   "tejido": "vessels",
+   "vertices": 3890,
+   "triangulos": 7588,
+   "offsetPos": 4568208,
+   "offsetIdx": 4614888
+  },
+  {
+   "nombre": "veins_leg_l",
+   "tejido": "vessels",
+   "vertices": 7522,
+   "triangulos": 14832,
+   "offsetPos": 4705944,
+   "offsetIdx": 4796208
+  },
+  {
+   "nombre": "spine_thoracic",
+   "tejido": "skeleton",
+   "vertices": 2488,
+   "triangulos": 4932,
+   "offsetPos": 4974192,
+   "offsetIdx": 5004048
+  },
+  {
+   "nombre": "skull",
+   "tejido": "skeleton",
+   "vertices": 10057,
+   "triangulos": 20094,
+   "offsetPos": 5063232,
+   "offsetIdx": 5183916
+  },
+  {
+   "nombre": "pelvic_floor",
+   "tejido": "muscles",
+   "vertices": 1264,
+   "triangulos": 2602,
+   "offsetPos": 5425044,
+   "offsetIdx": 5440212
+  },
+  {
+   "nombre": "intercostals_r",
+   "tejido": "muscles",
+   "vertices": 8131,
+   "triangulos": 16234,
+   "offsetPos": 5471436,
+   "offsetIdx": 5569008
+  },
+  {
+   "nombre": "intercostals_l",
+   "tejido": "muscles",
+   "vertices": 8121,
+   "triangulos": 16220,
+   "offsetPos": 5763816,
+   "offsetIdx": 5861268
+  },
+  {
+   "nombre": "spine_lumbar",
+   "tejido": "skeleton",
+   "vertices": 1152,
+   "triangulos": 2284,
+   "offsetPos": 6055908,
+   "offsetIdx": 6069732
+  },
+  {
+   "nombre": "teeth",
+   "tejido": "skeleton",
+   "vertices": 2659,
+   "triangulos": 5194,
+   "offsetPos": 6097140,
+   "offsetIdx": 6129048
+  },
+  {
+   "nombre": "forearm_muscles_l",
+   "tejido": "muscles",
+   "vertices": 1927,
+   "triangulos": 3792,
+   "offsetPos": 6191376,
+   "offsetIdx": 6214500
+  },
+  {
+   "nombre": "forearm_muscles_r",
+   "tejido": "muscles",
+   "vertices": 1959,
+   "triangulos": 3862,
+   "offsetPos": 6260004,
+   "offsetIdx": 6283512
+  },
+  {
+   "nombre": "mandible",
+   "tejido": "skeleton",
+   "vertices": 206,
+   "triangulos": 722,
+   "offsetPos": 6329856,
+   "offsetIdx": 6332328
+  },
+  {
+   "nombre": "veins_pelvis",
+   "tejido": "vessels",
+   "vertices": 8395,
+   "triangulos": 16706,
+   "offsetPos": 6340992,
+   "offsetIdx": 6441732
+  },
+  {
+   "nombre": "lung_l",
+   "tejido": "organs",
+   "vertices": 3088,
+   "triangulos": 5680,
+   "offsetPos": 6642204,
+   "offsetIdx": 6679260
+  },
+  {
+   "nombre": "neck_muscles_l",
+   "tejido": "muscles",
+   "vertices": 1422,
+   "triangulos": 2700,
+   "offsetPos": 6747420,
+   "offsetIdx": 6764484
+  },
+  {
+   "nombre": "pulmonary_vessels",
+   "tejido": "vessels",
+   "vertices": 1339,
+   "triangulos": 2586,
+   "offsetPos": 6796884,
+   "offsetIdx": 6812952
+  },
+  {
+   "nombre": "vena_cava_inferior",
+   "tejido": "vessels",
+   "vertices": 318,
+   "triangulos": 400,
+   "offsetPos": 6843984,
+   "offsetIdx": 6847800
+  },
+  {
+   "nombre": "calf_l",
+   "tejido": "muscles",
+   "vertices": 888,
+   "triangulos": 1752,
+   "offsetPos": 6852600,
+   "offsetIdx": 6863256
+  },
+  {
+   "nombre": "upper_arm_muscles_l",
+   "tejido": "muscles",
+   "vertices": 508,
+   "triangulos": 986,
+   "offsetPos": 6884280,
+   "offsetIdx": 6890376
+  },
+  {
+   "nombre": "calf_r",
+   "tejido": "muscles",
+   "vertices": 884,
+   "triangulos": 1750,
+   "offsetPos": 6902208,
+   "offsetIdx": 6912816
+  },
+  {
+   "nombre": "upper_arm_muscles_r",
+   "tejido": "muscles",
+   "vertices": 499,
+   "triangulos": 966,
+   "offsetPos": 6933816,
+   "offsetIdx": 6939804
+  },
+  {
+   "nombre": "back_muscles_r",
+   "tejido": "muscles",
+   "vertices": 3807,
+   "triangulos": 7420,
+   "offsetPos": 6951396,
+   "offsetIdx": 6997080
+  },
+  {
+   "nombre": "back_muscles_l",
+   "tejido": "muscles",
+   "vertices": 3795,
+   "triangulos": 7406,
+   "offsetPos": 7086120,
+   "offsetIdx": 7131660
+  },
+  {
+   "nombre": "adductors_l",
+   "tejido": "muscles",
+   "vertices": 443,
+   "triangulos": 862,
+   "offsetPos": 7220532,
+   "offsetIdx": 7225848
+  },
+  {
+   "nombre": "clavicle_l",
+   "tejido": "skeleton",
+   "vertices": 207,
+   "triangulos": 400,
+   "offsetPos": 7236192,
+   "offsetIdx": 7238676
+  },
+  {
+   "nombre": "carotid_l",
+   "tejido": "vessels",
+   "vertices": 247,
+   "triangulos": 400,
+   "offsetPos": 7243476,
+   "offsetIdx": 7246440
+  },
+  {
+   "nombre": "ribs_l",
+   "tejido": "skeleton",
+   "vertices": 2821,
+   "triangulos": 5594,
+   "offsetPos": 7251240,
+   "offsetIdx": 7285092
+  },
+  {
+   "nombre": "shin_muscles_l",
+   "tejido": "muscles",
+   "vertices": 545,
+   "triangulos": 1062,
+   "offsetPos": 7352220,
+   "offsetIdx": 7358760
+  },
+  {
+   "nombre": "abdominal_muscles",
+   "tejido": "muscles",
+   "vertices": 5020,
+   "triangulos": 10020,
+   "offsetPos": 7371504,
+   "offsetIdx": 7431744
+  },
+  {
+   "nombre": "femur_l",
+   "tejido": "skeleton",
+   "vertices": 369,
+   "triangulos": 704,
+   "offsetPos": 7551984,
+   "offsetIdx": 7556412
+  },
+  {
+   "nombre": "lower_leg_l",
+   "tejido": "skeleton",
+   "vertices": 338,
+   "triangulos": 620,
+   "offsetPos": 7564860,
+   "offsetIdx": 7568916
+  },
+  {
+   "nombre": "gluteal_l",
+   "tejido": "muscles",
+   "vertices": 752,
+   "triangulos": 1460,
+   "offsetPos": 7576356,
+   "offsetIdx": 7585380
+  },
+  {
+   "nombre": "tongue",
+   "tejido": "organs",
+   "vertices": 979,
+   "triangulos": 1930,
+   "offsetPos": 7602900,
+   "offsetIdx": 7614648
+  },
+  {
+   "nombre": "pelvis",
+   "tejido": "skeleton",
+   "vertices": 1554,
+   "triangulos": 3136,
+   "offsetPos": 7637808,
+   "offsetIdx": 7656456
+  },
+  {
+   "nombre": "humerus_l",
+   "tejido": "skeleton",
+   "vertices": 528,
+   "triangulos": 846,
+   "offsetPos": 7694088,
+   "offsetIdx": 7700424
+  },
+  {
+   "nombre": "iliopsoas_l",
+   "tejido": "muscles",
+   "vertices": 2015,
+   "triangulos": 1414,
+   "offsetPos": 7710576,
+   "offsetIdx": 7734756
+  },
+  {
+   "nombre": "brainstem",
+   "tejido": "organs",
+   "vertices": 1340,
+   "triangulos": 2640,
+   "offsetPos": 7751724,
+   "offsetIdx": 7767804
+  },
+  {
+   "nombre": "pharynx",
+   "tejido": "organs",
+   "vertices": 4090,
+   "triangulos": 8126,
+   "offsetPos": 7799484,
+   "offsetIdx": 7848564
+  },
+  {
+   "nombre": "rotator_cuff_l",
+   "tejido": "muscles",
+   "vertices": 226,
+   "triangulos": 440,
+   "offsetPos": 7946076,
+   "offsetIdx": 7948788
+  },
+  {
+   "nombre": "shoulder_muscles_l",
+   "tejido": "muscles",
+   "vertices": 1579,
+   "triangulos": 3118,
+   "offsetPos": 7954068,
+   "offsetIdx": 7973016
+  },
+  {
+   "nombre": "bronchi",
+   "tejido": "organs",
+   "vertices": 912,
+   "triangulos": 1204,
+   "offsetPos": 8010432,
+   "offsetIdx": 8021376
+  },
+  {
+   "nombre": "patella_l",
+   "tejido": "skeleton",
+   "vertices": 180,
+   "triangulos": 310,
+   "offsetPos": 8035824,
+   "offsetIdx": 8037984
+  },
+  {
+   "nombre": "forearm_l",
+   "tejido": "skeleton",
+   "vertices": 287,
+   "triangulos": 400,
+   "offsetPos": 8041704,
+   "offsetIdx": 8045148
+  },
+  {
+   "nombre": "quadriceps_l",
+   "tejido": "muscles",
+   "vertices": 585,
+   "triangulos": 1156,
+   "offsetPos": 8049948,
+   "offsetIdx": 8056968
+  },
+  {
+   "nombre": "scapula_l",
+   "tejido": "skeleton",
+   "vertices": 774,
+   "triangulos": 1544,
+   "offsetPos": 8070840,
+   "offsetIdx": 8080128
+  },
+  {
+   "nombre": "hamstrings_l",
+   "tejido": "muscles",
+   "vertices": 1470,
+   "triangulos": 1416,
+   "offsetPos": 8098656,
+   "offsetIdx": 8116296
+  },
+  {
+   "nombre": "hamstrings_r",
+   "tejido": "muscles",
+   "vertices": 1468,
+   "triangulos": 1416,
+   "offsetPos": 8133288,
+   "offsetIdx": 8150904
+  },
+  {
+   "nombre": "adductors_r",
+   "tejido": "muscles",
+   "vertices": 453,
+   "triangulos": 884,
+   "offsetPos": 8167896,
+   "offsetIdx": 8173332
+  },
+  {
+   "nombre": "clavicle_r",
+   "tejido": "skeleton",
+   "vertices": 205,
+   "triangulos": 400,
+   "offsetPos": 8183940,
+   "offsetIdx": 8186400
+  },
+  {
+   "nombre": "carotid_r",
+   "tejido": "vessels",
+   "vertices": 210,
+   "triangulos": 400,
+   "offsetPos": 8191200,
+   "offsetIdx": 8193720
+  },
+  {
+   "nombre": "neck_muscles_r",
+   "tejido": "muscles",
+   "vertices": 1496,
+   "triangulos": 2872,
+   "offsetPos": 8198520,
+   "offsetIdx": 8216472
+  },
+  {
+   "nombre": "ribs_r",
+   "tejido": "skeleton",
+   "vertices": 2839,
+   "triangulos": 5630,
+   "offsetPos": 8250936,
+   "offsetIdx": 8285004
+  },
+  {
+   "nombre": "shin_muscles_r",
+   "tejido": "muscles",
+   "vertices": 550,
+   "triangulos": 1072,
+   "offsetPos": 8352564,
+   "offsetIdx": 8359164
+  },
+  {
+   "nombre": "femur_r",
+   "tejido": "skeleton",
+   "vertices": 356,
+   "triangulos": 682,
+   "offsetPos": 8372028,
+   "offsetIdx": 8376300
+  },
+  {
+   "nombre": "lower_leg_r",
+   "tejido": "skeleton",
+   "vertices": 335,
+   "triangulos": 616,
+   "offsetPos": 8384484,
+   "offsetIdx": 8388504
+  },
+  {
+   "nombre": "gluteal_r",
+   "tejido": "muscles",
+   "vertices": 755,
+   "triangulos": 1466,
+   "offsetPos": 8395896,
+   "offsetIdx": 8404956
+  },
+  {
+   "nombre": "humerus_r",
+   "tejido": "skeleton",
+   "vertices": 674,
+   "triangulos": 832,
+   "offsetPos": 8422548,
+   "offsetIdx": 8430636
+  },
+  {
+   "nombre": "iliopsoas_r",
+   "tejido": "muscles",
+   "vertices": 2057,
+   "triangulos": 1448,
+   "offsetPos": 8440620,
+   "offsetIdx": 8465304
+  },
+  {
+   "nombre": "rotator_cuff_r",
+   "tejido": "muscles",
+   "vertices": 242,
+   "triangulos": 474,
+   "offsetPos": 8482680,
+   "offsetIdx": 8485584
+  },
+  {
+   "nombre": "shoulder_muscles_r",
+   "tejido": "muscles",
+   "vertices": 1578,
+   "triangulos": 3116,
+   "offsetPos": 8491272,
+   "offsetIdx": 8510208
+  },
+  {
+   "nombre": "patella_r",
+   "tejido": "skeleton",
+   "vertices": 178,
+   "triangulos": 306,
+   "offsetPos": 8547600,
+   "offsetIdx": 8549736
+  },
+  {
+   "nombre": "forearm_r",
+   "tejido": "skeleton",
+   "vertices": 278,
+   "triangulos": 400,
+   "offsetPos": 8553408,
+   "offsetIdx": 8556744
+  },
+  {
+   "nombre": "quadriceps_r",
+   "tejido": "muscles",
+   "vertices": 595,
+   "triangulos": 1176,
+   "offsetPos": 8561544,
+   "offsetIdx": 8568684
+  },
+  {
+   "nombre": "scapula_r",
+   "tejido": "skeleton",
+   "vertices": 775,
+   "triangulos": 1546,
+   "offsetPos": 8582796,
+   "offsetIdx": 8592096
+  },
+  {
+   "nombre": "skin",
+   "tejido": "skin",
+   "vertices": 11926,
+   "triangulos": 23852,
+   "offsetPos": 8610648,
+   "offsetIdx": 8753760
+  },
+  {
+   "nombre": "vena_cava_superior",
+   "tejido": "vessels",
+   "vertices": 216,
+   "triangulos": 400,
+   "offsetPos": 9039984,
+   "offsetIdx": 9042576
+  },
+  {
+   "nombre": "adrenal_l",
+   "tejido": "organs",
+   "vertices": 420,
+   "triangulos": 836,
+   "offsetPos": 9047376,
+   "offsetIdx": 9052416
+  },
+  {
+   "nombre": "adrenal_r",
+   "tejido": "organs",
+   "vertices": 302,
+   "triangulos": 600,
+   "offsetPos": 9062448,
+   "offsetIdx": 9066072
+  },
+  {
+   "nombre": "appendix",
+   "tejido": "organs",
+   "vertices": 315,
+   "triangulos": 600,
+   "offsetPos": 9073272,
+   "offsetIdx": 9077052
+  },
+  {
+   "nombre": "bladder",
+   "tejido": "organs",
+   "vertices": 463,
+   "triangulos": 802,
+   "offsetPos": 9084252,
+   "offsetIdx": 9089808
+  },
+  {
+   "nombre": "bone_marrow",
+   "tejido": "organs",
+   "vertices": 1225,
+   "triangulos": 2334,
+   "offsetPos": 9099432,
+   "offsetIdx": 9114132
+  },
+  {
+   "nombre": "cornea_l",
+   "tejido": "organs",
+   "vertices": 2363,
+   "triangulos": 4000,
+   "offsetPos": 9142140,
+   "offsetIdx": 9170496
+  },
+  {
+   "nombre": "cornea_r",
+   "tejido": "organs",
+   "vertices": 2363,
+   "triangulos": 4000,
+   "offsetPos": 9218496,
+   "offsetIdx": 9246852
+  },
+  {
+   "nombre": "costal_cartilages",
+   "tejido": "skeleton",
+   "vertices": 1123,
+   "triangulos": 764,
+   "offsetPos": 9294852,
+   "offsetIdx": 9308328
+  },
+  {
+   "nombre": "duodenum",
+   "tejido": "organs",
+   "vertices": 439,
+   "triangulos": 874,
+   "offsetPos": 9317496,
+   "offsetIdx": 9322764
+  },
+  {
+   "nombre": "ear_l",
+   "tejido": "organs",
+   "vertices": 1080,
+   "triangulos": 520,
+   "offsetPos": 9333252,
+   "offsetIdx": 9346212
+  },
+  {
+   "nombre": "ear_r",
+   "tejido": "organs",
+   "vertices": 1080,
+   "triangulos": 520,
+   "offsetPos": 9352452,
+   "offsetIdx": 9365412
+  },
+  {
+   "nombre": "epididymis_l",
+   "tejido": "organs",
+   "vertices": 1080,
+   "triangulos": 520,
+   "offsetPos": 9371652,
+   "offsetIdx": 9384612
+  },
+  {
+   "nombre": "epididymis_r",
+   "tejido": "organs",
+   "vertices": 1080,
+   "triangulos": 520,
+   "offsetPos": 9390852,
+   "offsetIdx": 9403812
+  },
+  {
+   "nombre": "esophagus",
+   "tejido": "organs",
+   "vertices": 502,
+   "triangulos": 961,
+   "offsetPos": 9410052,
+   "offsetIdx": 9416076
+  },
+  {
+   "nombre": "eye_l",
+   "tejido": "organs",
+   "vertices": 4246,
+   "triangulos": 8000,
+   "offsetPos": 9427608,
+   "offsetIdx": 9478560
+  },
+  {
+   "nombre": "eye_r",
+   "tejido": "organs",
+   "vertices": 4246,
+   "triangulos": 8000,
+   "offsetPos": 9574560,
+   "offsetIdx": 9625512
+  },
+  {
+   "nombre": "gallbladder",
+   "tejido": "organs",
+   "vertices": 433,
+   "triangulos": 845,
+   "offsetPos": 9721512,
+   "offsetIdx": 9726708
+  },
+  {
+   "nombre": "inner_ear_l",
+   "tejido": "organs",
+   "vertices": 726,
+   "triangulos": 1428,
+   "offsetPos": 9736848,
+   "offsetIdx": 9745560
+  },
+  {
+   "nombre": "inner_ear_r",
+   "tejido": "organs",
+   "vertices": 726,
+   "triangulos": 1428,
+   "offsetPos": 9762696,
+   "offsetIdx": 9771408
+  },
+  {
+   "nombre": "iris_l",
+   "tejido": "organs",
+   "vertices": 5423,
+   "triangulos": 7997,
+   "offsetPos": 9788544,
+   "offsetIdx": 9853620
+  },
+  {
+   "nombre": "iris_r",
+   "tejido": "organs",
+   "vertices": 5427,
+   "triangulos": 7999,
+   "offsetPos": 9949584,
+   "offsetIdx": 10014708
+  },
+  {
+   "nombre": "kidney_l",
+   "tejido": "organs",
+   "vertices": 1250,
+   "triangulos": 2496,
+   "offsetPos": 10110696,
+   "offsetIdx": 10125696
+  },
+  {
+   "nombre": "kidney_r",
+   "tejido": "organs",
+   "vertices": 1202,
+   "triangulos": 2399,
+   "offsetPos": 10155648,
+   "offsetIdx": 10170072
+  },
+  {
+   "nombre": "larynx",
+   "tejido": "organs",
+   "vertices": 2734,
+   "triangulos": 5376,
+   "offsetPos": 10198860,
+   "offsetIdx": 10231668
+  },
+  {
+   "nombre": "lens_l",
+   "tejido": "organs",
+   "vertices": 624,
+   "triangulos": 999,
+   "offsetPos": 10296180,
+   "offsetIdx": 10303668
+  },
+  {
+   "nombre": "lens_r",
+   "tejido": "organs",
+   "vertices": 624,
+   "triangulos": 999,
+   "offsetPos": 10315656,
+   "offsetIdx": 10323144
+  },
+  {
+   "nombre": "lung_r",
+   "tejido": "organs",
+   "vertices": 4932,
+   "triangulos": 9248,
+   "offsetPos": 10335132,
+   "offsetIdx": 10394316
+  },
+  {
+   "nombre": "lung_tissue_l",
+   "tejido": "organs",
+   "vertices": 1285,
+   "triangulos": 2566,
+   "offsetPos": 10505292,
+   "offsetIdx": 10520712
+  },
+  {
+   "nombre": "lung_tissue_r",
+   "tejido": "organs",
+   "vertices": 1357,
+   "triangulos": 2710,
+   "offsetPos": 10551504,
+   "offsetIdx": 10567788
+  },
+  {
+   "nombre": "lymph_nodes",
+   "tejido": "organs",
+   "vertices": 1381,
+   "triangulos": 2634,
+   "offsetPos": 10600308,
+   "offsetIdx": 10616880
+  },
+  {
+   "nombre": "lymph_vessels",
+   "tejido": "organs",
+   "vertices": 1128,
+   "triangulos": 2204,
+   "offsetPos": 10648488,
+   "offsetIdx": 10662024
+  },
+  {
+   "nombre": "macula_l",
+   "tejido": "organs",
+   "vertices": 479,
+   "triangulos": 500,
+   "offsetPos": 10688472,
+   "offsetIdx": 10694220
+  },
+  {
+   "nombre": "macula_r",
+   "tejido": "organs",
+   "vertices": 481,
+   "triangulos": 500,
+   "offsetPos": 10700220,
+   "offsetIdx": 10705992
+  },
+  {
+   "nombre": "nasal_cavity",
+   "tejido": "organs",
+   "vertices": 580,
+   "triangulos": 1152,
+   "offsetPos": 10711992,
+   "offsetIdx": 10718952
+  },
+  {
+   "nombre": "nerves_arm_l",
+   "tejido": "nerves",
+   "vertices": 1286,
+   "triangulos": 2540,
+   "offsetPos": 10732776,
+   "offsetIdx": 10748208
+  },
+  {
+   "nombre": "nerves_arm_r",
+   "tejido": "nerves",
+   "vertices": 1286,
+   "triangulos": 2540,
+   "offsetPos": 10778688,
+   "offsetIdx": 10794120
+  },
+  {
+   "nombre": "nerves_leg_l",
+   "tejido": "nerves",
+   "vertices": 1423,
+   "triangulos": 2814,
+   "offsetPos": 10824600,
+   "offsetIdx": 10841676
+  },
+  {
+   "nombre": "nerves_leg_r",
+   "tejido": "nerves",
+   "vertices": 1423,
+   "triangulos": 2814,
+   "offsetPos": 10875444,
+   "offsetIdx": 10892520
+  },
+  {
+   "nombre": "optic_disc_l",
+   "tejido": "organs",
+   "vertices": 1358,
+   "triangulos": 1500,
+   "offsetPos": 10926288,
+   "offsetIdx": 10942584
+  },
+  {
+   "nombre": "optic_disc_r",
+   "tejido": "organs",
+   "vertices": 1390,
+   "triangulos": 1500,
+   "offsetPos": 10960584,
+   "offsetIdx": 10977264
+  },
+  {
+   "nombre": "optic_nerve_l",
+   "tejido": "organs",
+   "vertices": 114,
+   "triangulos": 108,
+   "offsetPos": 10995264,
+   "offsetIdx": 10996632
+  },
+  {
+   "nombre": "optic_nerve_r",
+   "tejido": "organs",
+   "vertices": 114,
+   "triangulos": 108,
+   "offsetPos": 10997928,
+   "offsetIdx": 10999296
+  },
+  {
+   "nombre": "pancreas",
+   "tejido": "organs",
+   "vertices": 590,
+   "triangulos": 1168,
+   "offsetPos": 11000592,
+   "offsetIdx": 11007672
+  },
+  {
+   "nombre": "paranasal_sinuses",
+   "tejido": "organs",
+   "vertices": 644,
+   "triangulos": 1268,
+   "offsetPos": 11021688,
+   "offsetIdx": 11029416
+  },
+  {
+   "nombre": "parathyroids",
+   "tejido": "organs",
+   "vertices": 1440,
+   "triangulos": 672,
+   "offsetPos": 11044632,
+   "offsetIdx": 11061912
+  },
+  {
+   "nombre": "pineal",
+   "tejido": "organs",
+   "vertices": 292,
+   "triangulos": 580,
+   "offsetPos": 11069976,
+   "offsetIdx": 11073480
+  },
+  {
+   "nombre": "pituitary",
+   "tejido": "organs",
+   "vertices": 297,
+   "triangulos": 579,
+   "offsetPos": 11080440,
+   "offsetIdx": 11084004
+  },
+  {
+   "nombre": "prostate",
+   "tejido": "organs",
+   "vertices": 302,
+   "triangulos": 600,
+   "offsetPos": 11090952,
+   "offsetIdx": 11094576
+  },
+  {
+   "nombre": "pupil_l",
+   "tejido": "organs",
+   "vertices": 520,
+   "triangulos": 300,
+   "offsetPos": 11101776,
+   "offsetIdx": 11108016
+  },
+  {
+   "nombre": "pupil_r",
+   "tejido": "organs",
+   "vertices": 267,
+   "triangulos": 311,
+   "offsetPos": 11111616,
+   "offsetIdx": 11114820
+  },
+  {
+   "nombre": "retina_l",
+   "tejido": "organs",
+   "vertices": 2049,
+   "triangulos": 3000,
+   "offsetPos": 11118552,
+   "offsetIdx": 11143140
+  },
+  {
+   "nombre": "retina_r",
+   "tejido": "organs",
+   "vertices": 2050,
+   "triangulos": 3000,
+   "offsetPos": 11179140,
+   "offsetIdx": 11203740
+  },
+  {
+   "nombre": "salivary_glands",
+   "tejido": "organs",
+   "vertices": 327,
+   "triangulos": 593,
+   "offsetPos": 11239740,
+   "offsetIdx": 11243664
+  },
+  {
+   "nombre": "seminal_vesicles",
+   "tejido": "organs",
+   "vertices": 2160,
+   "triangulos": 1040,
+   "offsetPos": 11250780,
+   "offsetIdx": 11276700
+  },
+  {
+   "nombre": "spinal_cord",
+   "tejido": "nerves",
+   "vertices": 1623,
+   "triangulos": 3030,
+   "offsetPos": 11289180,
+   "offsetIdx": 11308656
+  },
+  {
+   "nombre": "spleen",
+   "tejido": "organs",
+   "vertices": 1211,
+   "triangulos": 2399,
+   "offsetPos": 11345016,
+   "offsetIdx": 11359548
+  },
+  {
+   "nombre": "stomach",
+   "tejido": "organs",
+   "vertices": 1202,
+   "triangulos": 2400,
+   "offsetPos": 11388336,
+   "offsetIdx": 11402760
+  },
+  {
+   "nombre": "testis_l",
+   "tejido": "organs",
+   "vertices": 1080,
+   "triangulos": 520,
+   "offsetPos": 11431560,
+   "offsetIdx": 11444520
+  },
+  {
+   "nombre": "testis_r",
+   "tejido": "organs",
+   "vertices": 1080,
+   "triangulos": 520,
+   "offsetPos": 11450760,
+   "offsetIdx": 11463720
+  },
+  {
+   "nombre": "thymus",
+   "tejido": "organs",
+   "vertices": 352,
+   "triangulos": 615,
+   "offsetPos": 11469960,
+   "offsetIdx": 11474184
+  },
+  {
+   "nombre": "thyroid",
+   "tejido": "organs",
+   "vertices": 576,
+   "triangulos": 1140,
+   "offsetPos": 11481564,
+   "offsetIdx": 11488476
+  },
+  {
+   "nombre": "tonsils",
+   "tejido": "organs",
+   "vertices": 648,
+   "triangulos": 1280,
+   "offsetPos": 11502156,
+   "offsetIdx": 11509932
+  },
+  {
+   "nombre": "trachea",
+   "tejido": "organs",
+   "vertices": 550,
+   "triangulos": 1047,
+   "offsetPos": 11525292,
+   "offsetIdx": 11531892
+  },
+  {
+   "nombre": "ureter_l",
+   "tejido": "organs",
+   "vertices": 817,
+   "triangulos": 1533,
+   "offsetPos": 11544456,
+   "offsetIdx": 11554260
+  },
+  {
+   "nombre": "ureter_r",
+   "tejido": "organs",
+   "vertices": 852,
+   "triangulos": 1478,
+   "offsetPos": 11572656,
+   "offsetIdx": 11582880
+  },
+  {
+   "nombre": "urethra",
+   "tejido": "organs",
+   "vertices": 358,
+   "triangulos": 440,
+   "offsetPos": 11600616,
+   "offsetIdx": 11604912
+  },
+  {
+   "nombre": "vagus_nerves",
+   "tejido": "nerves",
+   "vertices": 783,
+   "triangulos": 1558,
+   "offsetPos": 11610192,
+   "offsetIdx": 11619588
+  },
+  {
+   "nombre": "veins_abdomen",
+   "tejido": "vessels",
+   "vertices": 4655,
+   "triangulos": 9025,
+   "offsetPos": 11638284,
+   "offsetIdx": 11694144
+  }
+ ]
+}
