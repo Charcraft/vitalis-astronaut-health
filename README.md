@@ -64,7 +64,7 @@ python -m unittest tests/test_new_backend_integration.py -v   # backend, triage,
 python -m unittest tests/test_tablet.py -v                    # tablet bridge: touch, text, audio, protocol
 python scripts/auditoria_tablet.py                      # layout/touch audit of every view at touch-screen size
 python scripts/normalizar-osdr.py                       # re-download and normalise NASA OSD-575
-python scripts/demo_tour.py                             # ~2-minute guided tour of every function (for recording a demo)
+python scripts/demo_tour.py                             # exactly-2-minute guided tour (3D body, protocols, how the system reacts to a problem)
 ```
 
 The local API (`FastAPI`, `127.0.0.1:8780`) starts with the app and exposes `/api/parameters`, `/api/triage`, `/api/telemetry/hub`, `/api/series`, `/api/episodios`, `/api/tierra`, `/api/export`, …
@@ -83,6 +83,7 @@ The same software can be used from an Android tablet as a touch screen with its 
 | [`docs/INDICATORS.md`](docs/INDICATORS.md) | The 15 clinical indicators, thresholds and their validation status |
 | [`docs/AI_USE.md`](docs/AI_USE.md) | How Super Intelligence (SI) tools were used and what was never delegated |
 | [`docs/prompts/`](docs/prompts/README.md) | **The prompts used with each AI harness during development, in order**, and the structure each one produced |
+| [`docs/DEMO_SCRIPT.md`](docs/DEMO_SCRIPT.md) | Timecoded narration for the exactly-2-minute guided demo (`scripts/demo_tour.py`) |
 | [`docs/SUBMISSION_CONTENT.md`](docs/SUBMISSION_CONTENT.md) | The project-page answers prepared for the NASA Space Apps form (nothing has been submitted by this repository) |
 | [`CHANGELOG.md`](CHANGELOG.md) | Release history |
 

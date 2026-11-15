@@ -8,7 +8,7 @@ ten organs, camera modes), guided measurement, and how the system reacts to a pr
 warning → red alert with alarm, organ highlighting, alert panel, suggested protocol, emergency
 protocols and ALSP animations, SBAR to Earth, Mission Control) before returning to normal.
 
-    python scripts/demo_tour.py                       # starts immediately, ~3.5 minutes
+    python scripts/demo_tour.py                       # starts immediately, exactly 2 minutes
     python scripts/demo_tour.py --go-file go.txt      # waits until go.txt exists (to sync a recorder)
     python scripts/demo_tour.py --windowed --fast 0.3 # quick dry run
 
@@ -29,7 +29,7 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 REPO_URL = "github.com/Charcraft/vitalis-astronaut-health"
-DURACION = 208  # seconds
+DURACION = 120  # seconds (exactly two minutes)
 
 
 def main() -> int:
@@ -158,80 +158,71 @@ def main() -> int:
         "<div style='font-size:64px;font-weight:700;letter-spacing:6px'>V.I.T.A.L.I.S.</div>"
         "<div style='font-size:26px;margin-top:14px'>Vital Information Telemetry and Life-support In Space</div>"
         "<div style='font-size:22px;margin-top:26px;color:#5B6472'>Offline-first astronaut health monitoring</div>"))
-    at(4, quitar_titulo)
-    at(4, vista("inicio"))
-    at(5, orbitar(12, 16, 420))
+    at(3, quitar_titulo)
+    at(3, vista("inicio"))
+    at(3.5, orbitar(12, 11, 420))
 
     # ------------------------------------------------------------- 3D body: systems, organs, camera
-    at(12, vista("cuerpo"))
+    at(8, vista("cuerpo"))
     sistemas = ["cardiovascular", "respiratorio", "neuro-ocular", "metabolico", "musculoesqueletico", "inmune-radiacion"]
     for i, s in enumerate(sistemas):
-        at(12.5 + i * 3.5, (lambda s=s: st.set_sistema(s)))
-        at(13.5 + i * 3.5, orbitar(10, 5, 380))
+        at(8.3 + i * 2.2, (lambda s=s: st.set_sistema(s)))
+        at(9.0 + i * 2.2, orbitar(10, 3, 330))
     organos = ["corazon", "pulmones", "higado", "riñones", "cerebro", "ojos", "estomago", "pancreas", "intestino", "huesos"]
     for i, o in enumerate(organos):
-        at(34 + i * 2.3, organo(o))
-    at(57, lambda: v.visor_3d.cambiar_modo_vista("lateral"))
-    at(60, lambda: v.visor_3d.cambiar_modo_vista("capas"))
-    at(62, lambda: repetir(lambda: v.visor_3d._zoom(1.12), 4, 300))
-    at(64, lambda: repetir(lambda: v.visor_3d.orbitar(18, 0), 8, 250))
-    at(66, lambda: v.visor_3d.cambiar_modo_vista("frontal"))
+        at(21.5 + i * 1.3, organo(o))
+    at(34.5, lambda: v.visor_3d.cambiar_modo_vista("lateral"))
+    at(36, lambda: v.visor_3d.cambiar_modo_vista("capas"))
+    at(37, lambda: repetir(lambda: v.visor_3d._zoom(1.12), 3, 250))
 
-    # ------------------------------------------------------------- guided measurement + history
-    at(68, vista("medir", indicadorId="glucose"))
-    at(70, lambda: teclear("103"))
-    at(73.5, lambda: v.vista_medir._registrar_lectura())
-    at(78, vista("historial", paramId="glucose"))
+    # ------------------------------------------------------------- guided measurement
+    at(38.5, vista("medir", indicadorId="glucose"))
+    at(39.5, lambda: teclear("103"))
+    at(42.5, lambda: v.vista_medir._registrar_lectura())
 
     # ------------------------------------------------------------- the system reacts to a problem
-    at(83, vista("cuerpo"))
-    at(83.2, lambda: st.set_sistema("cardiovascular"))
-    at(84, lambda: get_runtime().forzar_anomalia("heart_rate", "ATENCION", duracion_ms=150000))   # yellow
-    at(90, lambda: v._abrir_panel_avisos())
-    at(94, lambda: v.panel_avisos.hide())
-    at(95, lambda: get_runtime().forzar_anomalia("spo2", "CRITICO", duracion_ms=150000))          # red
-    at(96, lambda: st.set_sistema("respiratorio"))
-    at(103, lambda: v._abrir_panel_avisos())
-    at(108, lambda: v._protocolo_desde_aviso("respiratorio"))
+    at(46, vista("cuerpo"))
+    at(46.2, lambda: st.set_sistema("cardiovascular"))
+    at(47, lambda: get_runtime().forzar_anomalia("heart_rate", "ATENCION", duracion_ms=120000))   # yellow
+    at(50, lambda: v._abrir_panel_avisos())
+    at(53, lambda: v.panel_avisos.hide())
+    at(54, lambda: get_runtime().forzar_anomalia("spo2", "CRITICO", duracion_ms=120000))          # red
+    at(55, lambda: st.set_sistema("respiratorio"))
+    at(60, lambda: v._abrir_panel_avisos())
+    at(65, lambda: v._protocolo_desde_aviso("respiratorio"))
 
     # ------------------------------------------------------------- emergency protocols
-    at(109, paso(0))
-    at(113, paso(1))
-    at(117, paso(2))
-    at(120, pedir_ayuda)                                   # SBAR to Earth
-    at(124, proto("cardiovascular"))
-    at(125, paso(0))
-    at(128, metro())
-    at(129, paso(1))
-    at(133, paso(2))
-    at(136, metro())
-    at(137, proto("neurologico"))
-    at(138, paso(0))
-    at(142, paso(1))
-    at(146, proto("trauma"))
-    at(147, paso(0))
-    at(151, paso(1))
-    at(155, equipo("dea"))
-    at(159, equipo("iv"))
-    at(163, equipo("via-aerea"))
-    at(167, equipo("farmacos"))
+    at(66, paso(0))
+    at(69, paso(1))
+    at(72, pedir_ayuda)                                    # SBAR to Earth
+    at(74, proto("cardiovascular"))
+    at(74.5, paso(0))
+    at(76.5, metro())
+    at(78, paso(1))
+    at(81, metro())
+    at(82, proto("neurologico"))
+    at(82.5, paso(0))
+    at(85, paso(1))
+    at(87, proto("trauma"))
+    at(87.5, paso(0))
+    at(90, paso(1))
+    at(92, equipo("dea"))
+    at(94.5, equipo("iv"))
+    at(97, equipo("via-aerea"))
+    at(99.5, equipo("farmacos"))
 
     # ------------------------------------------------------------- assistant + Mission Control
-    at(171, vista("cuerpo"))
-    at(172, lambda: preguntar("Any anomalies?"))
-    at(181, lis_replegar)
-    at(181.5, vista("sala", panel="eventos"))
-    at(185, lambda: v.vista_sala.seleccionar_panel("cola"))
-    at(189, lambda: v.vista_sala.seleccionar_panel("vivo"))
+    at(102, vista("cuerpo"))
+    at(102.5, lambda: preguntar("Any anomalies?"))
+    at(108, lis_replegar)
+    at(108.2, vista("sala", panel="eventos"))
+    at(110.2, lambda: v.vista_sala.seleccionar_panel("cola"))
 
-    # ------------------------------------------------------------- back to normal
-    at(192, lambda: get_runtime().limpiar_anomalias())
-    at(192, atender_ayuda)
-    at(192.5, vista("cuerpo"))
-    at(197, vista("salud_mental", seccion="pvt"))
-    at(200, lambda: v.vista_salud_mental.seleccionar_seccion("descompresion"))
-    at(203, vista("lis"))
-    at(205, lambda: titulo(
+    # ------------------------------------------------------------- back to normal + closing
+    at(112, lambda: get_runtime().limpiar_anomalias())
+    at(112, atender_ayuda)
+    at(112.3, vista("salud_mental", seccion="pvt"))
+    at(115, lambda: titulo(
         "<div style='font-size:46px;font-weight:700'>Measure · Compare · Decide · Act</div>"
         "<div style='font-size:26px;margin-top:22px'>26 parameters · 172-mesh 3D body · deterministic triage · 100% offline</div>"
         "<div style='font-size:24px;margin-top:22px;color:#5B6472'>38 automated tests · 29 views audited at touch size · MIT licence</div>"
