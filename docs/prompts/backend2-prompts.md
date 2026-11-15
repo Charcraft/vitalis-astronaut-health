@@ -4,8 +4,7 @@ Harness used for the **deterministic data and rules layer** of V.I.T.A.L.I.S.
 (AEGIS): the OSD-575 client, the reference thresholds, the pure triage engine,
 the local persistence and sync queue, and the medical protocols.
 
-- **Harness / model:** OpenCode · `deepseek-v4-pro` (plus `deepseek-flash` for the
-  initial task split).
+- **Model:** DeepSeek V4 Pro.
 - **Session:** 2026-11-14, 15:47 – 21:27 (local time, UTC−6).
 - **Role:** "Backend 2" — everything that must be **deterministic and offline**:
   no network, no remote database, no AI in the critical path.

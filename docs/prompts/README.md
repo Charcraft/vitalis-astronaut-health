@@ -6,8 +6,9 @@ This folder is the public record of **how Super Intelligence (SI) tools were use
 |---|---|---|---|
 | **Antigravity** (Google Antigravity CLI agent) | Product build: design, backend, assistant L.I.S., native desktop port, backend integration, alarms, Wellbeing module, releases v1.0.0 → v1.2.0 | [`antigravity.md`](antigravity.md) | 32 entries |
 | **Coding agent 2** | 3D anatomy viewer, removal of the web prototype, touch-first UI and alerts, tablet version | [`coding-agent-2.md`](coding-agent-2.md) | 8 entries |
+| **Backend 2 — DeepSeek V4 Pro** | Deterministic data and rules layer: OSD-575 client, reference thresholds, triage engine, persistence and sync queue, medical protocols | [`backend2-prompts.md`](backend2-prompts.md) | 4 entries |
 
-The other harnesses available to the team (Codex, OpenCode, Cursor, GitHub Copilot, Orca) have **no sessions during the hackathon dates** and are therefore not documented here.
+The other harnesses available to the team (Codex, Cursor, GitHub Copilot, Orca) have **no sessions during the hackathon dates** and are therefore not documented here.
 
 ## How the prompts were selected
 
