@@ -6,6 +6,7 @@ This folder is the public record of **how Super Intelligence (SI) tools were use
 |---|---|---|---|
 | **Antigravity** (Google Antigravity CLI agent) | Product build: design, backend, assistant L.I.S., native desktop port, backend integration, alarms, Wellbeing module, releases v1.0.0 → v1.2.0 | [`antigravity.md`](antigravity.md) | 32 entries |
 | **Claude Code** (Anthropic) | 3D anatomy viewer, removal of the web prototype, touch-first UI and alerts, tablet version | [`claude-code.md`](claude-code.md) | 8 entries |
+| **Backend Track (`feat/backend`)** | Backend architecture & coupling analysis (Back 1 / Back 2), multi-environment adaptation (`nave`, `estacion`, `base-lunar`), 17 NASA OSDR `OSD-575` CMP analytes documentation, REST/SSE integration contract, and end-to-end ingestion & Earth sync pipeline | [`backend.md`](backend.md) | 5 entries |
 
 The other harnesses available to the team (Codex, OpenCode, Cursor, GitHub Copilot, Orca) have **no sessions during the hackathon dates** and are therefore not documented here.
 
