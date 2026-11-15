@@ -64,6 +64,7 @@ python -m unittest tests/test_new_backend_integration.py -v   # backend, triage,
 python -m unittest tests/test_tablet.py -v                    # tablet bridge: touch, text, audio, protocol
 python scripts/auditoria_tablet.py                      # layout/touch audit of every view at touch-screen size
 python scripts/normalizar-osdr.py                       # re-download and normalise NASA OSD-575
+python scripts/demo_tour.py                             # ~2-minute guided tour of every function (for recording a demo)
 ```
 
 The local API (`FastAPI`, `127.0.0.1:8780`) starts with the app and exposes `/api/parameters`, `/api/triage`, `/api/telemetry/hub`, `/api/series`, `/api/episodios`, `/api/tierra`, `/api/export`, …
