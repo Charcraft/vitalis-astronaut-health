@@ -107,6 +107,16 @@ docs/                   English documentation and screenshots
 - Every numeric threshold either cites a source (see [`docs/INDICATORS.md`](docs/INDICATORS.md), [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md)) or is explicitly tagged **`[TO BE VALIDATED]`** (shown as `[POR VALIDAR]` in the Spanish sources/UI), **`[ASSUMPTION]`** or **`[INFERENCE]`**.
 - Only de-identified public data are used (OSD-575 crew are anonymised as C001–C004 by the source).
 
+## Team
+
+| Member | GitHub | Role |
+|---|---|---|
+| Eduardo Daniel Vázquez Díaz | @eduardovd2007 | Mental-health module |
+| Angel Marco Martínez Cobos | @angelcobos380-art | Data contracts, rules and tests |
+| Carlos De Jesús Martínez Pineda | @Charcraft | Frontend Lead · 3D models · AI |
+| Carlos Alberto Lázaro Aguilar | @carlosaalbertolazaro | Pitch · Video · Submission |
+| Ernesto Montes García | @ErnestoMG01 | Offline · Data · Sync |
+
 ## Credits and licences
 
 Code: MIT ([`LICENSE`](LICENSE)). 3D anatomy: CC BY 4.0 with upstream credits in [`recursos/modelos/ATTRIBUTION.md`](recursos/modelos/ATTRIBUTION.md). NASA OSDR data are public. This project does not use NASA logos or mission identifiers. AI-assisted work is disclosed in [`docs/AI_USE.md`](docs/AI_USE.md).
